@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Data.h"
+#import "Thing.h"
 
 @interface ItemDetailViewController : UIViewController
 
-@property (nonatomic) AKThing * thing;
+@property (nonatomic) Thing * thing;
 
 @end

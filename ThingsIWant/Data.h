@@ -14,3 +14,4 @@
 @property (nonatomic) NSManagedObjectID * managedObjectId;
 @end
 
+

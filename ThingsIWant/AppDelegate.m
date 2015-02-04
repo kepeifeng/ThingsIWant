@@ -21,7 +21,13 @@
     ViewController * viewController = [[ViewController alloc] init];
     UINavigationController * navContoller = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = navContoller;
+    [self setupAppAppearance];
     return YES;
+}
+
+-(void)setupAppAppearance{
+
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"AvenirNextCondensed-Regular" size:[UIFont systemFontSize]]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -46,6 +52,30 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+
+    NSLog(@"%@", url);
+    
+    NSString * params = url.absoluteString;
+    params = [params substringFromIndex:scheme.length];
+    params = [self decodeFromPercentEscapeString:params];
+    NSString * scheme = @"thingsiwant://";
+
+    NSDictionary * info = [NSJSONSerialization JSONObjectWithData:[params dataUsingEncoding:(NSUTF8StringEncoding)] options:0 error:nil];
+    NSLog(@"%@",info);
+    
+    return YES;
+}
+
+// Decode a percent escape encoded string.
+- (NSString*) decodeFromPercentEscapeString:(NSString *) string {
+    return (__bridge NSString *) CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
+                                                                                         (__bridge CFStringRef) string,
+                                                                                         CFSTR(""),
+                                                                                         kCFStringEncodingUTF8);
 }
 
 #pragma mark - Core Data stack

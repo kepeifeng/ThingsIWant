@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Data.h"
 #import <SWTableViewCell.h>
+#import "ItemDetailViewController.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource,
 SWTableViewCellDelegate>
@@ -48,12 +49,13 @@ SWTableViewCellDelegate>
     if (!error) {
         
         _objectList = [[NSMutableArray alloc] initWithCapacity:result.count];
-    for (NSManagedObject * object in result) {
-        AKThing * thing  = [[AKThing alloc] init];
-        thing.name = [object valueForKey:@"name"];
-        thing.managedObjectId = object.objectID;
-        [_objectList addObject:thing];
-    }
+        [_objectList addObjectsFromArray:result];
+//    for (NSManagedObject * object in result) {
+//        Thing * thing  = [[Thing alloc] init];
+//        thing.name = [object valueForKey:@"name"];
+//        thing.managedObjectId = object.objectID;
+//        [_objectList addObject:thing];
+//    }
     
     [self.tableView reloadData];
     }
@@ -98,12 +100,12 @@ SWTableViewCellDelegate>
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
--(AKThing *)thingAtIndexPath:(NSIndexPath *)indexPath{
+-(Thing *)thingAtIndexPath:(NSIndexPath *)indexPath{
 
     return [_objectList objectAtIndex:indexPath.row];
 }
 
--(NSIndexPath *)indexPathOfThing:(AKThing *)thing{
+-(NSIndexPath *)indexPathOfThing:(Thing *)thing{
 
     NSUInteger index = [_objectList indexOfObject:thing];
     if (index != NSNotFound) {
@@ -141,20 +143,29 @@ SWTableViewCellDelegate>
         cell.delegate = self;
     }
     
-    AKThing * thing = [self thingAtIndexPath:indexPath];
+    Thing * thing = [self thingAtIndexPath:indexPath];
     cell.textLabel.text = thing.name;
     
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Thing * thing = [self thingAtIndexPath:indexPath];
+    ItemDetailViewController * itemDetailViewController= [[ItemDetailViewController alloc] init];
+    itemDetailViewController.thing = thing;
+    [self.navigationController pushViewController:itemDetailViewController animated:YES];
+}
+#pragma mark - Swipeable Table View Cell Delegate
 
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
 
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    AKThing * thing = [self thingAtIndexPath:indexPath];
+    Thing * thing = [self thingAtIndexPath:indexPath];
     
-    NSManagedObject * object = [[APP_DELEGATE managedObjectContext] objectWithID:thing.managedObjectId];
-    [[APP_DELEGATE managedObjectContext] deleteObject:object];
+//    NSManagedObject * object = [[APP_DELEGATE managedObjectContext] objectWithID:thing.managedObjectId];
+    [[APP_DELEGATE managedObjectContext] deleteObject:thing];
     [[APP_DELEGATE managedObjectContext] save:nil];
     [self refreshTableView];
     

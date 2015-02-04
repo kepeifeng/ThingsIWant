@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184BB8A01A81B8CB009CD3B8 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB89F1A81B8CB009CD3B8 /* Thing.m */; };
+		184BB8A31A81B8CB009CD3B8 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8A21A81B8CB009CD3B8 /* Image.m */; };
+		184BB8A61A81B8CC009CD3B8 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8A51A81B8CC009CD3B8 /* Note.m */; };
+		184BB8A91A81B8CC009CD3B8 /* Url.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8A81A81B8CC009CD3B8 /* Url.m */; };
+		184BB8AD1A81EC9A009CD3B8 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8AC1A81EC9A009CD3B8 /* ImageTableViewCell.m */; };
+		184BB8B01A8201D5009CD3B8 /* UIFont+Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8AF1A8201D5009CD3B8 /* UIFont+Customize.m */; };
+		184BB9751A820D45009CD3B8 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB9741A820D45009CD3B8 /* ActionViewController.m */; };
+		184BB9771A820D45009CD3B8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184BB9761A820D45009CD3B8 /* MainInterface.storyboard */; };
+		184BB97A1A820D45009CD3B8 /* SafariExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 184BB96F1A820D45009CD3B8 /* SafariExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		184BB99C1A820F54009CD3B8 /* ActionRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB99B1A820F54009CD3B8 /* ActionRequestHandler.m */; };
+		184BB99E1A820F54009CD3B8 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 184BB99D1A820F54009CD3B8 /* Action.js */; };
+		184BB9A11A820F54009CD3B8 /* AddUrl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 184BB9961A820F54009CD3B8 /* AddUrl.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		184BB9A71A822485009CD3B8 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB9A61A822485009CD3B8 /* NSString+Utility.m */; };
 		3720FD571A81237100F57F47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3720FD561A81237100F57F47 /* UIKit.framework */; };
 		3720FD591A81237C00F57F47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3720FD581A81237C00F57F47 /* CoreData.framework */; };
 		3720FD5C1A812BC100F57F47 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */; };
@@ -23,6 +36,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		184BB9781A820D45009CD3B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 379BE8D51A7D1202002D4A85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 184BB96E1A820D45009CD3B8;
+			remoteInfo = SafariExtension;
+		};
+		184BB99F1A820F54009CD3B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 379BE8D51A7D1202002D4A85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 184BB9951A820F54009CD3B8;
+			remoteInfo = AddUrl;
+		};
 		379BE8FA1A7D1202002D4A85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 379BE8D51A7D1202002D4A85 /* Project object */;
@@ -32,8 +59,47 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		184BB97E1A820D45009CD3B8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				184BB9A11A820F54009CD3B8 /* AddUrl.appex in Embed App Extensions */,
+				184BB97A1A820D45009CD3B8 /* SafariExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		11F4BFC88594A8C19F6BACE5 /* Pods-ThingsIWant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingsIWant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant.debug.xcconfig"; sourceTree = "<group>"; };
+		184BB89E1A81B8CB009CD3B8 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
+		184BB89F1A81B8CB009CD3B8 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
+		184BB8A11A81B8CB009CD3B8 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		184BB8A21A81B8CB009CD3B8 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		184BB8A41A81B8CC009CD3B8 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		184BB8A51A81B8CC009CD3B8 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		184BB8A71A81B8CC009CD3B8 /* Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
+		184BB8A81A81B8CC009CD3B8 /* Url.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Url.m; sourceTree = "<group>"; };
+		184BB8AB1A81EC9A009CD3B8 /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		184BB8AC1A81EC9A009CD3B8 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		184BB8AE1A8201D5009CD3B8 /* UIFont+Customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Customize.h"; path = "Category/UIFont+Customize.h"; sourceTree = "<group>"; };
+		184BB8AF1A8201D5009CD3B8 /* UIFont+Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Customize.m"; path = "Category/UIFont+Customize.m"; sourceTree = "<group>"; };
+		184BB96F1A820D45009CD3B8 /* SafariExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SafariExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		184BB9721A820D45009CD3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184BB9731A820D45009CD3B8 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		184BB9741A820D45009CD3B8 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		184BB9761A820D45009CD3B8 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		184BB9961A820F54009CD3B8 /* AddUrl.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddUrl.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		184BB9991A820F54009CD3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184BB99A1A820F54009CD3B8 /* ActionRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionRequestHandler.h; sourceTree = "<group>"; };
+		184BB99B1A820F54009CD3B8 /* ActionRequestHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionRequestHandler.m; sourceTree = "<group>"; };
+		184BB99D1A820F54009CD3B8 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		184BB9A51A822485009CD3B8 /* NSString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
+		184BB9A61A822485009CD3B8 /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
 		3720FD551A81219B00F57F47 /* ThingsIWant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThingsIWant-Prefix.pch"; sourceTree = "<group>"; };
 		3720FD561A81237100F57F47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3720FD581A81237C00F57F47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -60,6 +126,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		184BB96C1A820D45009CD3B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184BB9931A820F54009CD3B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		379BE8DA1A7D1202002D4A85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,11 +169,67 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		184BB8AA1A81B8FD009CD3B8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				184BB8A71A81B8CC009CD3B8 /* Url.h */,
+				184BB8A81A81B8CC009CD3B8 /* Url.m */,
+				184BB8A41A81B8CC009CD3B8 /* Note.h */,
+				184BB8A51A81B8CC009CD3B8 /* Note.m */,
+				184BB8A11A81B8CB009CD3B8 /* Image.h */,
+				184BB8A21A81B8CB009CD3B8 /* Image.m */,
+				184BB89E1A81B8CB009CD3B8 /* Thing.h */,
+				184BB89F1A81B8CB009CD3B8 /* Thing.m */,
+			);
+			name = Data;
+			path = ../Data;
+			sourceTree = "<group>";
+		};
+		184BB9701A820D45009CD3B8 /* SafariExtension */ = {
+			isa = PBXGroup;
+			children = (
+				184BB9731A820D45009CD3B8 /* ActionViewController.h */,
+				184BB9741A820D45009CD3B8 /* ActionViewController.m */,
+				184BB9761A820D45009CD3B8 /* MainInterface.storyboard */,
+				184BB9711A820D45009CD3B8 /* Supporting Files */,
+			);
+			path = SafariExtension;
+			sourceTree = "<group>";
+		};
+		184BB9711A820D45009CD3B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				184BB9721A820D45009CD3B8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		184BB9971A820F54009CD3B8 /* AddUrl */ = {
+			isa = PBXGroup;
+			children = (
+				184BB99A1A820F54009CD3B8 /* ActionRequestHandler.h */,
+				184BB99B1A820F54009CD3B8 /* ActionRequestHandler.m */,
+				184BB99D1A820F54009CD3B8 /* Action.js */,
+				184BB9981A820F54009CD3B8 /* Supporting Files */,
+			);
+			path = AddUrl;
+			sourceTree = "<group>";
+		};
+		184BB9981A820F54009CD3B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				184BB9991A820F54009CD3B8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		379BE8D41A7D1202002D4A85 = {
 			isa = PBXGroup;
 			children = (
 				379BE8DF1A7D1202002D4A85 /* ThingsIWant */,
 				379BE8FC1A7D1202002D4A85 /* ThingsIWantTests */,
+				184BB9701A820D45009CD3B8 /* SafariExtension */,
+				184BB9971A820F54009CD3B8 /* AddUrl */,
 				379BE8DE1A7D1202002D4A85 /* Products */,
 				16C419C8B89ADE76CE780BEA /* Pods */,
 				B4DB487837772E42BAE3BD30 /* Frameworks */,
@@ -105,6 +241,8 @@
 			children = (
 				379BE8DD1A7D1202002D4A85 /* ThingsIWant.app */,
 				379BE8F91A7D1202002D4A85 /* ThingsIWantTests.xctest */,
+				184BB96F1A820D45009CD3B8 /* SafariExtension.appex */,
+				184BB9961A820F54009CD3B8 /* AddUrl.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,10 +250,15 @@
 		379BE8DF1A7D1202002D4A85 /* ThingsIWant */ = {
 			isa = PBXGroup;
 			children = (
+				184BB9A51A822485009CD3B8 /* NSString+Utility.h */,
+				184BB9A61A822485009CD3B8 /* NSString+Utility.m */,
+				184BB8AA1A81B8FD009CD3B8 /* Data */,
 				379BE8E41A7D1202002D4A85 /* AppDelegate.h */,
 				379BE8E51A7D1202002D4A85 /* AppDelegate.m */,
 				379BE8EA1A7D1202002D4A85 /* ViewController.h */,
 				379BE8EB1A7D1202002D4A85 /* ViewController.m */,
+				184BB8AB1A81EC9A009CD3B8 /* ImageTableViewCell.h */,
+				184BB8AC1A81EC9A009CD3B8 /* ImageTableViewCell.m */,
 				379BE8ED1A7D1202002D4A85 /* Main.storyboard */,
 				379BE8F01A7D1202002D4A85 /* Images.xcassets */,
 				379BE8F21A7D1202002D4A85 /* LaunchScreen.xib */,
@@ -125,6 +268,8 @@
 				3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */,
 				3720FD5D1A812BE700F57F47 /* Data.h */,
 				3720FD5E1A812BE700F57F47 /* Data.m */,
+				184BB8AE1A8201D5009CD3B8 /* UIFont+Customize.h */,
+				184BB8AF1A8201D5009CD3B8 /* UIFont+Customize.m */,
 			);
 			path = ThingsIWant;
 			sourceTree = "<group>";
@@ -169,6 +314,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		184BB96E1A820D45009CD3B8 /* SafariExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184BB97B1A820D45009CD3B8 /* Build configuration list for PBXNativeTarget "SafariExtension" */;
+			buildPhases = (
+				184BB96B1A820D45009CD3B8 /* Sources */,
+				184BB96C1A820D45009CD3B8 /* Frameworks */,
+				184BB96D1A820D45009CD3B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SafariExtension;
+			productName = SafariExtension;
+			productReference = 184BB96F1A820D45009CD3B8 /* SafariExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		184BB9951A820F54009CD3B8 /* AddUrl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184BB9A21A820F54009CD3B8 /* Build configuration list for PBXNativeTarget "AddUrl" */;
+			buildPhases = (
+				184BB9921A820F54009CD3B8 /* Sources */,
+				184BB9931A820F54009CD3B8 /* Frameworks */,
+				184BB9941A820F54009CD3B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddUrl;
+			productName = AddUrl;
+			productReference = 184BB9961A820F54009CD3B8 /* AddUrl.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		379BE8DC1A7D1202002D4A85 /* ThingsIWant */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 379BE9031A7D1202002D4A85 /* Build configuration list for PBXNativeTarget "ThingsIWant" */;
@@ -178,10 +357,13 @@
 				379BE8DA1A7D1202002D4A85 /* Frameworks */,
 				379BE8DB1A7D1202002D4A85 /* Resources */,
 				EE212B1B8C61EFE67CF385B5 /* Copy Pods Resources */,
+				184BB97E1A820D45009CD3B8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				184BB9791A820D45009CD3B8 /* PBXTargetDependency */,
+				184BB9A01A820F54009CD3B8 /* PBXTargetDependency */,
 			);
 			name = ThingsIWant;
 			productName = ThingsIWant;
@@ -215,6 +397,12 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Kent;
 				TargetAttributes = {
+					184BB96E1A820D45009CD3B8 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					184BB9951A820F54009CD3B8 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 					379BE8DC1A7D1202002D4A85 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -239,11 +427,29 @@
 			targets = (
 				379BE8DC1A7D1202002D4A85 /* ThingsIWant */,
 				379BE8F81A7D1202002D4A85 /* ThingsIWantTests */,
+				184BB96E1A820D45009CD3B8 /* SafariExtension */,
+				184BB9951A820F54009CD3B8 /* AddUrl */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		184BB96D1A820D45009CD3B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184BB9771A820D45009CD3B8 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184BB9941A820F54009CD3B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184BB99E1A820F54009CD3B8 /* Action.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		379BE8DB1A7D1202002D4A85 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,14 +503,37 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		184BB96B1A820D45009CD3B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184BB9751A820D45009CD3B8 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184BB9921A820F54009CD3B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184BB99C1A820F54009CD3B8 /* ActionRequestHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		379BE8D91A7D1202002D4A85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184BB8AD1A81EC9A009CD3B8 /* ImageTableViewCell.m in Sources */,
+				184BB8A61A81B8CC009CD3B8 /* Note.m in Sources */,
 				379BE8E61A7D1202002D4A85 /* AppDelegate.m in Sources */,
 				379BE8E31A7D1202002D4A85 /* main.m in Sources */,
+				184BB8B01A8201D5009CD3B8 /* UIFont+Customize.m in Sources */,
 				379BE8EC1A7D1202002D4A85 /* ViewController.m in Sources */,
+				184BB8A01A81B8CB009CD3B8 /* Thing.m in Sources */,
+				184BB8A91A81B8CC009CD3B8 /* Url.m in Sources */,
 				379BE8E91A7D1202002D4A85 /* ThingsIWant.xcdatamodeld in Sources */,
+				184BB8A31A81B8CB009CD3B8 /* Image.m in Sources */,
+				184BB9A71A822485009CD3B8 /* NSString+Utility.m in Sources */,
 				3720FD5C1A812BC100F57F47 /* ItemDetailViewController.m in Sources */,
 				3720FD5F1A812BE700F57F47 /* Data.m in Sources */,
 			);
@@ -321,6 +550,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		184BB9791A820D45009CD3B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 184BB96E1A820D45009CD3B8 /* SafariExtension */;
+			targetProxy = 184BB9781A820D45009CD3B8 /* PBXContainerItemProxy */;
+		};
+		184BB9A01A820F54009CD3B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 184BB9951A820F54009CD3B8 /* AddUrl */;
+			targetProxy = 184BB99F1A820F54009CD3B8 /* PBXContainerItemProxy */;
+		};
 		379BE8FB1A7D1202002D4A85 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 379BE8DC1A7D1202002D4A85 /* ThingsIWant */;
@@ -348,6 +587,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		184BB97C1A820D45009CD3B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SafariExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		184BB97D1A820D45009CD3B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SafariExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		184BB9A31A820F54009CD3B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AddUrl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		184BB9A41A820F54009CD3B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AddUrl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		379BE9011A7D1202002D4A85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,6 +721,7 @@
 				GCC_PREFIX_HEADER = "ThingsIWant/ThingsIWant-Prefix.pch";
 				INFOPLIST_FILE = ThingsIWant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -446,6 +734,7 @@
 				GCC_PREFIX_HEADER = "ThingsIWant/ThingsIWant-Prefix.pch";
 				INFOPLIST_FILE = ThingsIWant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -487,6 +776,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		184BB97B1A820D45009CD3B8 /* Build configuration list for PBXNativeTarget "SafariExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184BB97C1A820D45009CD3B8 /* Debug */,
+				184BB97D1A820D45009CD3B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		184BB9A21A820F54009CD3B8 /* Build configuration list for PBXNativeTarget "AddUrl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184BB9A31A820F54009CD3B8 /* Debug */,
+				184BB9A41A820F54009CD3B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		379BE8D81A7D1202002D4A85 /* Build configuration list for PBXProject "ThingsIWant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
