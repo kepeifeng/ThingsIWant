@@ -2,7 +2,7 @@
 //  Thing.m
 //  ThingsIWant
 //
-//  Created by Kent Peifeng Ke on 2/4/15.
+//  Created by Kent Peifeng Ke on 2/9/15.
 //  Copyright (c) 2015 Kent. All rights reserved.
 //
 
@@ -11,7 +11,8 @@
 
 @implementation Thing
 
-@dynamic name;
 @dynamic mainImageId;
+@dynamic name;
+@dynamic price;
 
 @end

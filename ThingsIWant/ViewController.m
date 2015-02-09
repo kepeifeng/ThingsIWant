@@ -132,7 +132,7 @@ SWTableViewCellDelegate>
     
     SWTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[SWTableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:CellIdentifier];
+        cell = [[SWTableViewCell alloc] initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier:CellIdentifier];
         
         UIButton * button = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [button setTitle:@"DEL" forState:(UIControlStateNormal)];
@@ -141,10 +141,13 @@ SWTableViewCellDelegate>
         cell.rightUtilityButtons = @[button];
         
         cell.delegate = self;
+        
+        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
     
     Thing * thing = [self thingAtIndexPath:indexPath];
     cell.textLabel.text = thing.name;
+    cell.detailTextLabel.text = (thing.price == 0)?@"":[NSString stringWithFormat:@"%d",(int)thing.price];
     
     return cell;
 }

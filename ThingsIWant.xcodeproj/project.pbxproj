@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		184BB8A01A81B8CB009CD3B8 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB89F1A81B8CB009CD3B8 /* Thing.m */; };
 		184BB8A31A81B8CB009CD3B8 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8A21A81B8CB009CD3B8 /* Image.m */; };
 		184BB8A61A81B8CC009CD3B8 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8A51A81B8CC009CD3B8 /* Note.m */; };
 		184BB8A91A81B8CC009CD3B8 /* Url.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB8A81A81B8CC009CD3B8 /* Url.m */; };
@@ -20,6 +19,8 @@
 		184BB99E1A820F54009CD3B8 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 184BB99D1A820F54009CD3B8 /* Action.js */; };
 		184BB9A11A820F54009CD3B8 /* AddUrl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 184BB9961A820F54009CD3B8 /* AddUrl.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		184BB9A71A822485009CD3B8 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB9A61A822485009CD3B8 /* NSString+Utility.m */; };
+		18C239BA1A88B823009EB734 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C239B91A88B823009EB734 /* Thing.m */; };
+		18C239E01A88BDF2009EB734 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C239DF1A88BDF2009EB734 /* AppIcons.xcassets */; };
 		3720FD571A81237100F57F47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3720FD561A81237100F57F47 /* UIKit.framework */; };
 		3720FD591A81237C00F57F47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3720FD581A81237C00F57F47 /* CoreData.framework */; };
 		3720FD5C1A812BC100F57F47 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */; };
@@ -76,8 +77,6 @@
 
 /* Begin PBXFileReference section */
 		11F4BFC88594A8C19F6BACE5 /* Pods-ThingsIWant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingsIWant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant.debug.xcconfig"; sourceTree = "<group>"; };
-		184BB89E1A81B8CB009CD3B8 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
-		184BB89F1A81B8CB009CD3B8 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		184BB8A11A81B8CB009CD3B8 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		184BB8A21A81B8CB009CD3B8 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		184BB8A41A81B8CC009CD3B8 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
@@ -100,6 +99,10 @@
 		184BB99D1A820F54009CD3B8 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 		184BB9A51A822485009CD3B8 /* NSString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
 		184BB9A61A822485009CD3B8 /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
+		18C239B71A88B75D009EB734 /* ThingsIWant 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ThingsIWant 2.xcdatamodel"; sourceTree = "<group>"; };
+		18C239B81A88B823009EB734 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
+		18C239B91A88B823009EB734 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
+		18C239DF1A88BDF2009EB734 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
 		3720FD551A81219B00F57F47 /* ThingsIWant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThingsIWant-Prefix.pch"; sourceTree = "<group>"; };
 		3720FD561A81237100F57F47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3720FD581A81237C00F57F47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -178,8 +181,8 @@
 				184BB8A51A81B8CC009CD3B8 /* Note.m */,
 				184BB8A11A81B8CB009CD3B8 /* Image.h */,
 				184BB8A21A81B8CB009CD3B8 /* Image.m */,
-				184BB89E1A81B8CB009CD3B8 /* Thing.h */,
-				184BB89F1A81B8CB009CD3B8 /* Thing.m */,
+				18C239B81A88B823009EB734 /* Thing.h */,
+				18C239B91A88B823009EB734 /* Thing.m */,
 			);
 			name = Data;
 			path = ../Data;
@@ -223,6 +226,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		18C239BB1A88B9B0009EB734 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				184BB8AA1A81B8FD009CD3B8 /* Data */,
+				184BB9A51A822485009CD3B8 /* NSString+Utility.h */,
+				184BB9A61A822485009CD3B8 /* NSString+Utility.m */,
+				379BE8E41A7D1202002D4A85 /* AppDelegate.h */,
+				379BE8E51A7D1202002D4A85 /* AppDelegate.m */,
+				379BE8EA1A7D1202002D4A85 /* ViewController.h */,
+				379BE8EB1A7D1202002D4A85 /* ViewController.m */,
+				184BB8AB1A81EC9A009CD3B8 /* ImageTableViewCell.h */,
+				184BB8AC1A81EC9A009CD3B8 /* ImageTableViewCell.m */,
+				379BE8ED1A7D1202002D4A85 /* Main.storyboard */,
+				379BE8F21A7D1202002D4A85 /* LaunchScreen.xib */,
+				3720FD5A1A812BC100F57F47 /* ItemDetailViewController.h */,
+				3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */,
+				3720FD5D1A812BE700F57F47 /* Data.h */,
+				3720FD5E1A812BE700F57F47 /* Data.m */,
+				184BB8AE1A8201D5009CD3B8 /* UIFont+Customize.h */,
+				184BB8AF1A8201D5009CD3B8 /* UIFont+Customize.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
 		379BE8D41A7D1202002D4A85 = {
 			isa = PBXGroup;
 			children = (
@@ -250,26 +277,9 @@
 		379BE8DF1A7D1202002D4A85 /* ThingsIWant */ = {
 			isa = PBXGroup;
 			children = (
-				184BB9A51A822485009CD3B8 /* NSString+Utility.h */,
-				184BB9A61A822485009CD3B8 /* NSString+Utility.m */,
-				184BB8AA1A81B8FD009CD3B8 /* Data */,
-				379BE8E41A7D1202002D4A85 /* AppDelegate.h */,
-				379BE8E51A7D1202002D4A85 /* AppDelegate.m */,
-				379BE8EA1A7D1202002D4A85 /* ViewController.h */,
-				379BE8EB1A7D1202002D4A85 /* ViewController.m */,
-				184BB8AB1A81EC9A009CD3B8 /* ImageTableViewCell.h */,
-				184BB8AC1A81EC9A009CD3B8 /* ImageTableViewCell.m */,
-				379BE8ED1A7D1202002D4A85 /* Main.storyboard */,
-				379BE8F01A7D1202002D4A85 /* Images.xcassets */,
-				379BE8F21A7D1202002D4A85 /* LaunchScreen.xib */,
+				18C239BB1A88B9B0009EB734 /* Class */,
 				379BE8E71A7D1202002D4A85 /* ThingsIWant.xcdatamodeld */,
 				379BE8E01A7D1202002D4A85 /* Supporting Files */,
-				3720FD5A1A812BC100F57F47 /* ItemDetailViewController.h */,
-				3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */,
-				3720FD5D1A812BE700F57F47 /* Data.h */,
-				3720FD5E1A812BE700F57F47 /* Data.m */,
-				184BB8AE1A8201D5009CD3B8 /* UIFont+Customize.h */,
-				184BB8AF1A8201D5009CD3B8 /* UIFont+Customize.m */,
 			);
 			path = ThingsIWant;
 			sourceTree = "<group>";
@@ -277,6 +287,8 @@
 		379BE8E01A7D1202002D4A85 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				379BE8F01A7D1202002D4A85 /* Images.xcassets */,
+				18C239DF1A88BDF2009EB734 /* AppIcons.xcassets */,
 				379BE8E11A7D1202002D4A85 /* Info.plist */,
 				379BE8E21A7D1202002D4A85 /* main.m */,
 				3720FD551A81219B00F57F47 /* ThingsIWant-Prefix.pch */,
@@ -456,6 +468,7 @@
 			files = (
 				379BE8EF1A7D1202002D4A85 /* Main.storyboard in Resources */,
 				379BE8F41A7D1202002D4A85 /* LaunchScreen.xib in Resources */,
+				18C239E01A88BDF2009EB734 /* AppIcons.xcassets in Resources */,
 				379BE8F11A7D1202002D4A85 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,7 +542,7 @@
 				379BE8E31A7D1202002D4A85 /* main.m in Sources */,
 				184BB8B01A8201D5009CD3B8 /* UIFont+Customize.m in Sources */,
 				379BE8EC1A7D1202002D4A85 /* ViewController.m in Sources */,
-				184BB8A01A81B8CB009CD3B8 /* Thing.m in Sources */,
+				18C239BA1A88B823009EB734 /* Thing.m in Sources */,
 				184BB8A91A81B8CC009CD3B8 /* Url.m in Sources */,
 				379BE8E91A7D1202002D4A85 /* ThingsIWant.xcdatamodeld in Sources */,
 				184BB8A31A81B8CB009CD3B8 /* Image.m in Sources */,
@@ -827,9 +840,10 @@
 		379BE8E71A7D1202002D4A85 /* ThingsIWant.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				18C239B71A88B75D009EB734 /* ThingsIWant 2.xcdatamodel */,
 				379BE8E81A7D1202002D4A85 /* ThingsIWant.xcdatamodel */,
 			);
-			currentVersion = 379BE8E81A7D1202002D4A85 /* ThingsIWant.xcdatamodel */;
+			currentVersion = 18C239B71A88B75D009EB734 /* ThingsIWant 2.xcdatamodel */;
 			path = ThingsIWant.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

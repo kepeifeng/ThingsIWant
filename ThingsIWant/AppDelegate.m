@@ -60,9 +60,9 @@
     NSLog(@"%@", url);
     
     NSString * params = url.absoluteString;
+    NSString * scheme = @"thingsiwant://";
     params = [params substringFromIndex:scheme.length];
     params = [self decodeFromPercentEscapeString:params];
-    NSString * scheme = @"thingsiwant://";
 
     NSDictionary * info = [NSJSONSerialization JSONObjectWithData:[params dataUsingEncoding:(NSUTF8StringEncoding)] options:0 error:nil];
     NSLog(@"%@",info);
@@ -108,10 +108,15 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSDictionary *options = @{
+                              NSMigratePersistentStoresAutomaticallyOption : @YES,
+                              NSInferMappingModelAutomaticallyOption : @YES
+                              };
+    
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ThingsIWant.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
