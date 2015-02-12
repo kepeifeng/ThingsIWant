@@ -21,6 +21,7 @@
 		184BB9A71A822485009CD3B8 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BB9A61A822485009CD3B8 /* NSString+Utility.m */; };
 		18C239BA1A88B823009EB734 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C239B91A88B823009EB734 /* Thing.m */; };
 		18C239E01A88BDF2009EB734 /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C239DF1A88BDF2009EB734 /* AppIcons.xcassets */; };
+		18EF490F1A8B6D91008B3670 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF490E1A8B6D91008B3670 /* appicon.png */; };
 		3720FD571A81237100F57F47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3720FD561A81237100F57F47 /* UIKit.framework */; };
 		3720FD591A81237C00F57F47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3720FD581A81237C00F57F47 /* CoreData.framework */; };
 		3720FD5C1A812BC100F57F47 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */; };
@@ -99,10 +100,12 @@
 		184BB99D1A820F54009CD3B8 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 		184BB9A51A822485009CD3B8 /* NSString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
 		184BB9A61A822485009CD3B8 /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
+		18A56BB21A8C440B0063ADE9 /* Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Private.h; sourceTree = "<group>"; };
 		18C239B71A88B75D009EB734 /* ThingsIWant 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ThingsIWant 2.xcdatamodel"; sourceTree = "<group>"; };
 		18C239B81A88B823009EB734 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		18C239B91A88B823009EB734 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		18C239DF1A88BDF2009EB734 /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
+		18EF490E1A8B6D91008B3670 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		3720FD551A81219B00F57F47 /* ThingsIWant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThingsIWant-Prefix.pch"; sourceTree = "<group>"; };
 		3720FD561A81237100F57F47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3720FD581A81237C00F57F47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -229,6 +232,7 @@
 		18C239BB1A88B9B0009EB734 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				18A56BB21A8C440B0063ADE9 /* Private.h */,
 				184BB8AA1A81B8FD009CD3B8 /* Data */,
 				184BB9A51A822485009CD3B8 /* NSString+Utility.h */,
 				184BB9A61A822485009CD3B8 /* NSString+Utility.m */,
@@ -246,6 +250,7 @@
 				3720FD5E1A812BE700F57F47 /* Data.m */,
 				184BB8AE1A8201D5009CD3B8 /* UIFont+Customize.h */,
 				184BB8AF1A8201D5009CD3B8 /* UIFont+Customize.m */,
+				18EF490E1A8B6D91008B3670 /* appicon.png */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EF490F1A8B6D91008B3670 /* appicon.png in Resources */,
 				379BE8EF1A7D1202002D4A85 /* Main.storyboard in Resources */,
 				379BE8F41A7D1202002D4A85 /* LaunchScreen.xib in Resources */,
 				18C239E01A88BDF2009EB734 /* AppIcons.xcassets in Resources */,

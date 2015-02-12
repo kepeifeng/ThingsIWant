@@ -43,8 +43,11 @@
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:(imageViewRect)];
         [self.contentView addSubview:imageView];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
         [imageViews addObject:imageView];
         imageViewRect.origin.x += self.imageSize.width + margin;
+        
         
     }
     

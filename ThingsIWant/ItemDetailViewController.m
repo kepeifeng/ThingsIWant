@@ -11,11 +11,26 @@
 #import "ImageTableViewCell.h"
 #import "Url.h"
 #import "Note.h"
+#import "Private.h"
+
+#import <DZNPhotoPickerController.h>
+#import <UIImagePickerController+Edit.h>
+
+
+typedef NS_ENUM(NSUInteger, DetailSection) {
+    DetailSectionImage,
+    DetailSectionPrice,
+    DetailSectionLink,
+    DetailSectionNote
+};
 
 NSInteger const numberOfImagesPerRow = 4;
 
+#define TAG_TITLE_FIELD 10000
+#define TAG_PRICE_FIELD 10001
+
 @interface ItemDetailViewController ()<UIImagePickerControllerDelegate, UITableViewDataSource,
-UITableViewDelegate>
+UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 @property (nonatomic,readonly) NSManagedObjectContext * manageObjectContext;
 @property (nonatomic) UITableView * tableView;
 @end
@@ -26,6 +41,43 @@ UITableViewDelegate>
     NSArray * _notes;
     
     UIImageView * _mainImageView;
+    
+    UIEdgeInsets _originalContentOffset;
+    
+    UIToolbar * _inputToolBar;
+    
+    __weak UIView * _firstResponder;
+    
+    UITextView * _titleField;
+}
+
+
++ (void)initialize
+{
+    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerService500px
+                                      consumerKey:k500pxConsumerKey
+                                   consumerSecret:k500pxConsumerSecret];
+    
+    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceFlickr
+                                      consumerKey:kFlickrConsumerKey
+                                   consumerSecret:kFlickrConsumerSecret];
+    
+    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceInstagram
+                                      consumerKey:kInstagramConsumerKey
+                                   consumerSecret:kInstagramConsumerSecret];
+    
+    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceGoogleImages
+                                      consumerKey:kGoogleImagesConsumerKey
+                                   consumerSecret:kGoogleImagesSearchEngineID];
+    
+    //Bing does not require a secret. Rather just an "Account Key"
+    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceBingImages
+                                      consumerKey:kBingImagesAccountKey
+                                   consumerSecret:nil];
+    
+    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceGettyImages
+                                      consumerKey:kGettyImagesConsumerKey
+                                   consumerSecret:kGettyImagesConsumerSecret];
 }
 
 -(NSManagedObjectContext *)manageObjectContext{
@@ -35,7 +87,7 @@ UITableViewDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = self.thing.name;
+//    self.title = self.thing.name;
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIBarButtonItem * addImageButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCamera) target:self action:@selector(addImageButtonTapped:)];
@@ -46,15 +98,110 @@ UITableViewDelegate>
     UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:(UITableViewStyleGrouped)];
     tableView.delegate = self;
     tableView.dataSource = self;
+    
     [self.view addSubview:tableView];
     
     self.tableView = tableView;
     self.tableView.backgroundColor = [UIColor whiteColor];
     
+    [self registerForKeyboardNotifications];
     
     [self updateView];
     
 }
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if (object == _titleField) {
+        UITextView *textView = object;
+        CGFloat topCorrect = ([textView bounds].size.height - [textView contentSize].height * [textView zoomScale])/2.0;
+        topCorrect = ( topCorrect < 0.0 ? 0.0 : topCorrect );
+        textView.contentOffset = (CGPoint){.x = 0, .y = -topCorrect};
+    }
+
+}
+
+-(void)prepareToolBar{
+
+    if (!_inputToolBar) {
+        _inputToolBar = [[UIToolbar alloc] initWithFrame:(CGRectMake(0, CGRectGetHeight(self.view.frame) - 44, CGRectGetWidth(self.view.frame), 44))];
+        UIBarButtonItem * spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemFlexibleSpace) target:nil action:nil];
+        UIBarButtonItem * doneItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:(UIBarButtonItemStylePlain) target:self action:@selector(doneButtonTapped:)];
+        _inputToolBar.items = @[spaceItem, doneItem];
+        [self.view addSubview:_inputToolBar];
+    }
+}
+
+
+-(void)doneButtonTapped:(id)sender{
+
+    [_firstResponder resignFirstResponder];
+}
+
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWillShown:(NSNotification*)aNotification
+{
+    
+    [self prepareToolBar];
+    
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+
+
+    _originalContentOffset = self.tableView.contentInset;
+    
+    UIEdgeInsets contentInsets = _originalContentOffset;
+    contentInsets.bottom = kbSize.height;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        CGRect toolbarFrame = _inputToolBar.frame;
+        toolbarFrame.origin.y = CGRectGetHeight(self.view.frame) - kbSize.height - CGRectGetHeight(toolbarFrame);
+        _inputToolBar.frame = toolbarFrame;
+        _inputToolBar.alpha = 1;
+    }];
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    //    CGRect aRect = self.view.frame;
+    //    aRect.size.height -= kbSize.height;
+    //    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+    //        [_textView scrollRectToVisible:activeField.frame animated:YES];
+    //    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = _originalContentOffset;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        CGRect toolbarFrame = _inputToolBar.frame;
+        toolbarFrame.origin.y = CGRectGetHeight(self.view.frame);
+        _inputToolBar.frame = toolbarFrame;
+        _inputToolBar.alpha = 1;
+    }];
+}
+
 
 -(void)addUrlButtonTapped:(id)sender{
     
@@ -252,13 +399,25 @@ UITableViewDelegate>
     
     UIView * headerView = [[UIView alloc] initWithFrame:self.view.bounds];
     
-    UILabel * titleLabel = [[UILabel alloc] initWithFrame:(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200))];
-    titleLabel.text = self.thing.name;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont fontWithName:@"AvenirNextCondensed-Regular" size:42];
-    [headerView addSubview:titleLabel];
+    if (!_titleField) {
+        UITextView * titleLabel = [[UITextView alloc] initWithFrame:(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200))];
+        titleLabel.tag = TAG_TITLE_FIELD;
+        titleLabel.text = self.thing.name;
+        titleLabel.delegate = self;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.font = [UIFont fontWithName:@"AvenirNextCondensed-Regular" size:42];
+        
+        [titleLabel addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:NULL];
+     
+        
+        _titleField = titleLabel;
+    }
     
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:(CGRectMake(0, CGRectGetMaxY(titleLabel.frame), CGRectGetWidth(self.view.frame), 200))];
+    [headerView addSubview:_titleField];
+
+    
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:(CGRectMake(0, CGRectGetMaxY(_titleField.frame), CGRectGetWidth(self.view.frame), 200))];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
     [headerView addSubview:imageView];
     _mainImageView = imageView;
     
@@ -270,7 +429,7 @@ UITableViewDelegate>
     }else{
         _mainImageView.image = nil;
         [_mainImageView removeFromSuperview];
-        headerViewRect.size.height = CGRectGetMaxY(titleLabel.frame);
+        headerViewRect.size.height = CGRectGetMaxY(_titleField.frame);
     }
     headerView.frame = headerViewRect;
     
@@ -288,12 +447,126 @@ UITableViewDelegate>
 
 -(void)addImageButtonTapped:(id)sender{
 
-    UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"Cancel" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+        
+    }];
+    [alertController addAction:cancel];
+    
+    UIAlertAction * takePhoto = [UIAlertAction actionWithTitle:@"Take Photo" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+    }];
+    [alertController addAction:takePhoto];
+    
+    UIAlertAction * chooseImage = [UIAlertAction actionWithTitle:@"Choose from Library" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+        UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        
+    }];
+    [alertController addAction:chooseImage];
+    
+    UIAlertAction * searchImage = [UIAlertAction actionWithTitle:@"Search Online" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        [self presentPhotoSearch:nil];
+    }];
+    [alertController addAction:searchImage];
+    
+
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+
     
 }
+
+- (void)dismissController:(UIViewController *)controller
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+- (void)updateImageWithPayload:(NSDictionary *)payload
+{
+//    _photoPayload = payload;
+    
+    NSLog(@"OriginalImage : %@", payload[UIImagePickerControllerOriginalImage]);
+    NSLog(@"EditedImage : %@", payload[UIImagePickerControllerEditedImage]);
+    NSLog(@"MediaType : %@", payload[UIImagePickerControllerMediaType]);
+    NSLog(@"CropRect : %@", NSStringFromCGRect([ payload[UIImagePickerControllerCropRect] CGRectValue]));
+    NSLog(@"ZoomScale : %f", [ payload[DZNPhotoPickerControllerCropZoomScale] floatValue]);
+    
+    NSLog(@"CropMode : %@", payload[DZNPhotoPickerControllerCropMode]);
+    NSLog(@"PhotoAttributes : %@", payload[DZNPhotoPickerControllerPhotoMetadata]);
+    
+    UIImage *image = payload[UIImagePickerControllerEditedImage];
+    if (!image) image = payload[UIImagePickerControllerOriginalImage];
+    
+    
+    [self saveImage:image];
+    [self updateView];
+    
+//    self.imageView.image = image;
+
+    
+    //    [self saveImage:image];
+}
+
+
+- (void)presentPhotoSearch:(id)sender
+{
+    DZNPhotoPickerController *picker = [DZNPhotoPickerController new];
+    picker.supportedServices = DZNPhotoPickerControllerServiceFlickr | DZNPhotoPickerControllerServiceGoogleImages | DZNPhotoPickerControllerServiceBingImages;
+    picker.allowsEditing = NO;
+    picker.cropMode = DZNPhotoEditorViewControllerCropModeSquare;
+    picker.initialSearchTerm = @"California";
+    picker.enablePhotoDownload = YES;
+    picker.allowAutoCompletedSearch = YES;
+    
+    [picker setFinalizationBlock:^(DZNPhotoPickerController *picker, NSDictionary *info){
+        [self updateImageWithPayload:info];
+        [self dismissController:picker];
+    }];
+    
+    [picker setFailureBlock:^(DZNPhotoPickerController *picker, NSError *error){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    }];
+    
+    [picker setCancellationBlock:^(DZNPhotoPickerController *picker){
+        [self dismissController:picker];
+    }];
+    
+//    [self presentController:picker sender:sender];
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+/*- (void)presentController:(UIViewController *)controller sender:(id)sender
+{
+    if (_popoverController.isPopoverVisible) {
+        [_popoverController dismissPopoverAnimated:YES];
+        _popoverController = nil;
+    }
+    
+    if (_actionSheet.isVisible) {
+        _actionSheet = nil;
+    }
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        controller.preferredContentSize = CGSizeMake(320.0, 520.0);
+        
+        _popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+        [_popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else {
+        [self presentViewController:controller animated:YES completion:NULL];
+    }
+}*/
+
 
 -(NSString *)imageFolder{
 
@@ -312,7 +585,13 @@ UITableViewDelegate>
 
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    _mainImageView.image = image;
+
+    [self saveImage:image];
+    [self updateView];
+    
+}
+
+-(void)saveImage:(UIImage *)image{
     
     NSData * data = UIImageJPEGRepresentation(image, 0.8);
     
@@ -323,7 +602,7 @@ UITableViewDelegate>
     NSString * imagePath = [[self imageFolder] stringByAppendingPathComponent:filename];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:[self imageFolder]] == NO){
-    
+        
         [[NSFileManager defaultManager] createDirectoryAtPath:[self imageFolder] withIntermediateDirectories:YES attributes:nil error:nil];
     }
     [data writeToFile:imagePath atomically:YES];
@@ -347,7 +626,6 @@ UITableViewDelegate>
     [self.manageObjectContext insertObject:image];
     [self.manageObjectContext save:nil];
     
-    [self updateView];
     
 }
 
@@ -355,20 +633,22 @@ UITableViewDelegate>
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
-    return 3;
+    return 4;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
-        case 0:
+        case DetailSectionImage:
             return (_images.count / numberOfImagesPerRow)+1;
             break;
-        case 1:
+        case DetailSectionLink:
             return _urls.count;
             break;
-        case 2:
+        case DetailSectionNote:
             return _notes.count;
             break;
+        case DetailSectionPrice:
+            return 1;
         default:
             return 0;
             break;
@@ -378,7 +658,7 @@ UITableViewDelegate>
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 
-    if (indexPath.section == 0 ) {
+    if (indexPath.section == DetailSectionImage ) {
         ImageTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
         if (!cell) {
             cell = [[ImageTableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"ImageCell"];
@@ -387,7 +667,7 @@ UITableViewDelegate>
         }
         cell.images = [self imagesAtRow:indexPath.row];
         return cell;
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == DetailSectionLink){
     
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UrlCell"];
         if (!cell) {
@@ -400,7 +680,7 @@ UITableViewDelegate>
         cell.detailTextLabel.text = url.url;
         
         return cell;
-    }else if (indexPath.section == 2){
+    }else if (indexPath.section == DetailSectionNote){
     
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell"];
         if (!cell) {
@@ -416,13 +696,36 @@ UITableViewDelegate>
         cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
         
         return cell;
+    }else if (indexPath.section == DetailSectionPrice){
+    
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PriceCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier:@"PriceCell"];
+//            UITextField * priceField = [[UITextField alloc] initWithFrame:(CGRectMake(80, 0, CGRectGetWidth(cell.frame) - 80, CGRectGetHeight(cell.frame)))];
+            UITextField * priceField = [[UITextField alloc] initWithFrame:cell.bounds];
+            priceField.tag = TAG_PRICE_FIELD;
+            priceField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            priceField.keyboardType = UIKeyboardTypeDecimalPad;
+            priceField.textAlignment = NSTextAlignmentCenter;
+            priceField.delegate = self;
+            [cell.contentView addSubview:priceField];
+        }
+        
+
+        UITextField * priceField = (UITextField *)[cell viewWithTag:TAG_PRICE_FIELD];
+        priceField.text = ([self.thing.price integerValue]==0)?@"":[NSString stringWithFormat:@"%@", self.thing.price];
+        
+        return cell;
+        
     }
     return nil;
 }
 
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (indexPath.section == 0) {
+    if (indexPath.section == DetailSectionImage) {
         return 74;
     }
     
@@ -434,15 +737,20 @@ UITableViewDelegate>
 
     UILabel * label = [[UILabel alloc] initWithFrame:(CGRectMake(10, 0, 100, 40))];
     switch (section) {
-        case 0:
+        case DetailSectionImage:
             label.text = @"Image";
             break;
-        case 1:
+        case DetailSectionLink:
             label.text = @"Link";
             break;
-        case 2:
+        case DetailSectionNote:
             label.text = @"Note";
+            break;
+        case DetailSectionPrice:
+            label.text = @"Price";
+            break;
         default:
+            return nil;
             break;
     }
     return label;
@@ -450,6 +758,8 @@ UITableViewDelegate>
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+
     return 40;
 }
 
@@ -479,7 +789,7 @@ UITableViewDelegate>
 
 -(Url *)urlAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (indexPath.section != 1) {
+    if (indexPath.section != DetailSectionLink) {
         return nil;
     }
     return [_urls objectAtIndex:indexPath.row];
@@ -488,13 +798,66 @@ UITableViewDelegate>
 
 -(Note *)noteAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (indexPath.section != 2) {
+    if (indexPath.section != DetailSectionNote) {
         return nil;
     }
     return [_notes objectAtIndex:indexPath.row];
 }
 
+#pragma mark - Text Field Delegate
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    _firstResponder = textField;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    [textField resignFirstResponder];
+    return NO;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+
+    if (textField.tag == TAG_PRICE_FIELD) {
+        float price = 0;
+        if (textField.text.length) {
+            price = [textField.text floatValue];
+            self.thing.price = [NSDecimalNumber decimalNumberWithString:textField.text];
+        }else{
+            self.thing.price = [NSDecimalNumber decimalNumberWithString:@"0"];
+        }
+        [self.manageObjectContext save:nil];
+        
+    }
+    
+
+    _firstResponder = nil;
+}
+
+#pragma mark - Text View Delegate
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    _firstResponder = textView;
+    
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if(textView.tag == TAG_TITLE_FIELD){
+        self.thing.name = textView.text;
+        [self.manageObjectContext save:nil];
+    }
+    
+    _firstResponder = nil;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

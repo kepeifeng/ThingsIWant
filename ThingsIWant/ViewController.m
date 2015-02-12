@@ -36,7 +36,14 @@ SWTableViewCellDelegate>
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addButtonTapped:)];
     
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     [self refreshTableView];
+    
 }
 
 -(void)refreshTableView{
@@ -79,8 +86,10 @@ SWTableViewCellDelegate>
         
         NSString * name = [(UITextField *)[alertController.textFields objectAtIndex:0] text];
         if (name.length) {
-            NSManagedObject * desc = [NSEntityDescription insertNewObjectForEntityForName:@"Thing" inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
-            [desc setValue:name forKey:@"name"];
+            Thing * desc = (Thing *)[NSEntityDescription insertNewObjectForEntityForName:@"Thing" inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
+//            [desc setValue:name forKey:@"name"];
+            desc.name = name;
+            desc.price = 0;
 //            NSManagedObject * object = [[NSManagedObject alloc] initWithEntity:desc insertIntoManagedObjectContext:[APP_DELEGATE managedObjectContext]];
             [[APP_DELEGATE managedObjectContext] insertObject:desc];
             [[APP_DELEGATE managedObjectContext] save:nil];
@@ -147,7 +156,7 @@ SWTableViewCellDelegate>
     
     Thing * thing = [self thingAtIndexPath:indexPath];
     cell.textLabel.text = thing.name;
-    cell.detailTextLabel.text = (thing.price == 0)?@"":[NSString stringWithFormat:@"%d",(int)thing.price];
+    cell.detailTextLabel.text = ([thing.price integerValue] == 0)?@"":[NSString stringWithFormat:@"%ld",[thing.price integerValue]];
     
     return cell;
 }
