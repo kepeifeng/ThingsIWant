@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AddUrl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>SafariExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>ThingsIWant.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>184BB96E1A820D45009CD3B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>184BB9951A820F54009CD3B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>379BE8DC1A7D1202002D4A85</key>
 		<dict>
 			<key>primary</key>

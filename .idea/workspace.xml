@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="874393f2-2e90-4369-b454-ac7e8e75dd5e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/Chameleon.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/ChameleonMacros.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/ChameleonStatusBar.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/ChameleonStatusBar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/NSArray+Chameleon.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/NSArray+Chameleon.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/UIColor+CIELAB.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/UIColor+CIELAB.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/UIColor+Chameleon.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/UIColor+Chameleon.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/UIViewController+Chameleon.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/Chameleon/UIViewController+Chameleon.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLegacy.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoDisplayViewCell.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoDisplayViewCell.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoDisplayViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoDisplayViewController.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoPickerController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoPickerController.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoPickerControllerConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Core/DZNPhotoPickerControllerConstants.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Editor/DZNPhotoEditorViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Editor/DZNPhotoEditorViewController.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Editor/UIImagePickerController+Edit.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Editor/UIImagePickerController+Edit.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoMetadata.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoMetadata.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceClient.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceClient.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceClientProtocol.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceConstants.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceFactory.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoServiceFactory.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoTag.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/Source/Classes/Services/DZNPhotoTag.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/GROAuth2SessionManager/GROAuth2SessionManager/AFOAuthCredential.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/GROAuth2SessionManager/GROAuth2SessionManager/AFOAuthCredential.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/GROAuth2SessionManager/GROAuth2SessionManager/GROAuth2SessionManager.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/GROAuth2SessionManager/GROAuth2SessionManager/GROAuth2SessionManager.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/GROAuth2SessionManager/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/GROAuth2SessionManager/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/ChameleonStatusBar.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/UIColor+CIELAB.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/CocoaLumberjack/DDLegacy.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoDisplayViewCell.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoDisplayViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoEditorViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoMetadata.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoPickerController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoPickerControllerConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoServiceClient.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoServiceClientProtocol.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoServiceConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoServiceFactory.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/DZNPhotoTag.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/DZNPhotoPickerController/UIImagePickerController+Edit.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/GROAuth2SessionManager/AFOAuthCredential.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/GROAuth2SessionManager/GROAuth2SessionManager.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Public/MBProgressHUD/MBProgressHUD.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/MBProgressHUD/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/MBProgressHUD/MBProgressHUD.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/MBProgressHUD/MBProgressHUD.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/MBProgressHUD/README.mdown" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/QuickDialog/QDateInlineTableViewCell.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/QuickDialog/QDateInlineTableViewCell.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/QuickDialog/QuickDialogDelegate.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-AFNetworking/Pods-ThingsIWant-AFNetworking-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-AFNetworking/Pods-ThingsIWant-AFNetworking-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-AFNetworking/Pods-ThingsIWant-AFNetworking-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-AFNetworking/Pods-ThingsIWant-AFNetworking.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-ChameleonFramework/Pods-ThingsIWant-ChameleonFramework-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-ChameleonFramework/Pods-ThingsIWant-ChameleonFramework-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-ChameleonFramework/Pods-ThingsIWant-ChameleonFramework-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-ChameleonFramework/Pods-ThingsIWant-ChameleonFramework.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-CocoaLumberjack/Pods-ThingsIWant-CocoaLumberjack-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-CocoaLumberjack/Pods-ThingsIWant-CocoaLumberjack-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-CocoaLumberjack/Pods-ThingsIWant-CocoaLumberjack-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-CocoaLumberjack/Pods-ThingsIWant-CocoaLumberjack.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNEmptyDataSet/Pods-ThingsIWant-DZNEmptyDataSet-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNEmptyDataSet/Pods-ThingsIWant-DZNEmptyDataSet-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNEmptyDataSet/Pods-ThingsIWant-DZNEmptyDataSet-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNEmptyDataSet/Pods-ThingsIWant-DZNEmptyDataSet.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNPhotoPickerController/Pods-ThingsIWant-DZNPhotoPickerController-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNPhotoPickerController/Pods-ThingsIWant-DZNPhotoPickerController-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNPhotoPickerController/Pods-ThingsIWant-DZNPhotoPickerController-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-DZNPhotoPickerController/Pods-ThingsIWant-DZNPhotoPickerController.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-GROAuth2SessionManager/Pods-ThingsIWant-GROAuth2SessionManager-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-GROAuth2SessionManager/Pods-ThingsIWant-GROAuth2SessionManager-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-GROAuth2SessionManager/Pods-ThingsIWant-GROAuth2SessionManager-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-GROAuth2SessionManager/Pods-ThingsIWant-GROAuth2SessionManager.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-MBProgressHUD/Pods-ThingsIWant-MBProgressHUD-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-MBProgressHUD/Pods-ThingsIWant-MBProgressHUD-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-MBProgressHUD/Pods-ThingsIWant-MBProgressHUD-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-MBProgressHUD/Pods-ThingsIWant-MBProgressHUD.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-QuickDialog/Pods-ThingsIWant-QuickDialog-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-QuickDialog/Pods-ThingsIWant-QuickDialog-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-QuickDialog/Pods-ThingsIWant-QuickDialog-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-QuickDialog/Pods-ThingsIWant-QuickDialog.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SDWebImage/Pods-ThingsIWant-SDWebImage-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SDWebImage/Pods-ThingsIWant-SDWebImage-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SDWebImage/Pods-ThingsIWant-SDWebImage-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SDWebImage/Pods-ThingsIWant-SDWebImage.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SWTableViewCell/Pods-ThingsIWant-SWTableViewCell-Private.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SWTableViewCell/Pods-ThingsIWant-SWTableViewCell-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SWTableViewCell/Pods-ThingsIWant-SWTableViewCell-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant-SWTableViewCell/Pods-ThingsIWant-SWTableViewCell.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-environment.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ThingsIWant/Base.lproj/Main.storyboard" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile" afterPath="$PROJECT_DIR$/Podfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperationManager.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperationManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperationManager.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperationManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLSessionManager.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLSessionManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLSessionManager.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFURLSessionManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/README.md" afterPath="$PROJECT_DIR$/Pods/AFNetworking/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h" afterPath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.m" afterPath="$PROJECT_DIR$/Pods/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/LICENSE.md" afterPath="$PROJECT_DIR$/Pods/ChameleonFramework/LICENSE.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/ChameleonFramework/README.md" afterPath="$PROJECT_DIR$/Pods/ChameleonFramework/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/CocoaLumberjack.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/CocoaLumberjack.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/CocoaLumberjack.swift" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/CocoaLumberjack.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogCapture.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogCapture.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogCapture.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogCapture.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogger.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogger.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogger.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogger.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDAbstractDatabaseLogger.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDAbstractDatabaseLogger.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDAbstractDatabaseLogger.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDAbstractDatabaseLogger.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDAssertMacros.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDAssertMacros.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDFileLogger.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDFileLogger.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDFileLogger.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDFileLogger.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLog+LOGV.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLog+LOGV.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLog.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLog.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLog.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLog.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLogMacros.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDLogMacros.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDTTYLogger.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDTTYLogger.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDTTYLogger.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/DDTTYLogger.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDContextFilterLogFormatter.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDContextFilterLogFormatter.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDContextFilterLogFormatter.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDContextFilterLogFormatter.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDDispatchQueueLogFormatter.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDDispatchQueueLogFormatter.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDDispatchQueueLogFormatter.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDDispatchQueueLogFormatter.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDMultiFormatter.h" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDMultiFormatter.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDMultiFormatter.m" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDMultiFormatter.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/LICENSE.txt" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/CocoaLumberjack/README.md" afterPath="$PROJECT_DIR$/Pods/CocoaLumberjack/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/LICENSE" afterPath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/README.md" afterPath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/Source/UIScrollView+EmptyDataSet.h" afterPath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/Source/UIScrollView+EmptyDataSet.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/Source/UIScrollView+EmptyDataSet.m" afterPath="$PROJECT_DIR$/Pods/DZNEmptyDataSet/Source/UIScrollView+EmptyDataSet.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/README.md" afterPath="$PROJECT_DIR$/Pods/DZNPhotoPickerController/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/Chameleon.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/Chameleon.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/ChameleonMacros.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/ChameleonMacros.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/NSArray+Chameleon.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/NSArray+Chameleon.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/UIColor+Chameleon.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/UIColor+Chameleon.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/UIViewController+Chameleon.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/ChameleonFramework/UIViewController+Chameleon.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/QuickDialog/QDateInlineTableViewCell.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/QuickDialog/QDateInlineTableViewCell.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Headers/Public/QuickDialog/QuickDialogDelegate.h" afterPath="$PROJECT_DIR$/Pods/Headers/Public/QuickDialog/QuickDialogDelegate.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QColorPickerElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QColorPickerElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMailElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMailElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMailElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMailElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMapAnnotation.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMapAnnotation.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMapElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QMapElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QPickerElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QPickerElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QPickerTableViewCell.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QPickerTableViewCell.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QPickerTableViewCell.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QPickerTableViewCell.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QWebElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QWebElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/QWebElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/QWebElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/extras/UIColor+ColorUtilities.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/extras/UIColor+ColorUtilities.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QAppearance.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QAppearance.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QAppearance.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QAppearance.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QBooleanElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QBooleanElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QButtonElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QButtonElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QClassicAppearance.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QClassicAppearance.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QClassicAppearance.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QClassicAppearance.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QCountdownElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QCountdownElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QDateEntryTableViewCell.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QDateEntryTableViewCell.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QDateTimeInlineElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QDateTimeInlineElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QDateTimeInlineElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QDateTimeInlineElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement+Appearance.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement+Appearance.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement+Appearance.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement+Appearance.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QEmptyListElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QEmptyListElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QEntryElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QEntryElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QEntryTableViewCell.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QEntryTableViewCell.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFlatAppearance.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFlatAppearance.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFlatAppearance.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFlatAppearance.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFloatElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFloatElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFloatElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QFloatElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QImageElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QImageElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QImageElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QImageElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QLabelElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QLabelElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QRadioElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QRadioElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QRadioItemElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QRadioItemElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QSelectItemElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QSelectItemElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QTableViewCell.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QTableViewCell.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QTextElement.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QTextElement.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QTextElement.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QTextElement.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialog.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialog.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController+Animations.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController+Animations.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController+Navigation.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController+Navigation.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogDataSource.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogDataSource.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogTableDelegate.h" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogTableDelegate.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogTableView.m" afterPath="$PROJECT_DIR$/Pods/QuickDialog/quickdialog/QuickDialogTableView.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/README.md" afterPath="$PROJECT_DIR$/Pods/SDWebImage/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDImageCache.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDImageCache.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDImageCache.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDImageCache.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageCompat.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageCompat.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageCompat.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageCompat.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloader.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloader.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloader.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloader.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageManager.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageManager.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImageManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/SDWebImagePrefetcher.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIButton+WebCache.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIButton+WebCache.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIButton+WebCache.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIButton+WebCache.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImage+MultiFormat.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImage+MultiFormat.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+HighlightedWebCache.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.h" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m" afterPath="$PROJECT_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-acknowledgements.markdown" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-acknowledgements.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-acknowledgements.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-acknowledgements.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-resources.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-resources.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant.debug.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant.release.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThingsIWant.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ThingsIWant.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThingsIWant.xcodeproj/xcuserdata/kent.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/ThingsIWant.xcodeproj/xcuserdata/kent.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThingsIWant/AppDelegate.m" afterPath="$PROJECT_DIR$/ThingsIWant/AppDelegate.m" />
+    </list>
+    <ignored path="ThingsIWant.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos" />
+  <component name="FavoritesManager">
+    <favorites_list name="ThingsIWant" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Podfile" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1001" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThingsIWant" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThingsIWant" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThingsIWant" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThingsIWant" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThingsIWant" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Class" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pods" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pods" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Frameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Cidr.FilesView" />
+    </panes>
+  </component>
+  <component name="RunManager" selected="Application.AddUrl">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ThingsIWant" TARGET_NAME="ThingsIWant" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ThingsIWant" RUN_TARGET_NAME="ThingsIWant" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ThingsIWant" TARGET_NAME="ThingsIWant" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ThingsIWant" TARGET_NAME="ThingsIWantTests" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AddUrl" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ThingsIWant" TARGET_NAME="AddUrl" CONFIG_NAME="Debug" SCHEME_NAME="AddUrl" RUN_TARGET_PROJECT_NAME="ThingsIWant" RUN_TARGET_NAME="ThingsIWant" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="SafariExtension" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ThingsIWant" TARGET_NAME="SafariExtension" CONFIG_NAME="Debug" SCHEME_NAME="SafariExtension" RUN_TARGET_PROJECT_NAME="ThingsIWant" RUN_TARGET_NAME="ThingsIWant" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="ThingsIWant" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="ThingsIWant" TARGET_NAME="ThingsIWant" CONFIG_NAME="Debug" SCHEME_NAME="ThingsIWant" RUN_TARGET_PROJECT_NAME="ThingsIWant" RUN_TARGET_NAME="ThingsIWant" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="Pods-ThingsIWant" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="Pods-ThingsIWant" CONFIG_NAME="Debug" SCHEME_NAME="Pods-ThingsIWant" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="AFNetworking" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="AFNetworking" CONFIG_NAME="Debug" SCHEME_NAME="AFNetworking" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="ChameleonFramework" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="ChameleonFramework" CONFIG_NAME="Debug" SCHEME_NAME="ChameleonFramework" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="CocoaLumberjack" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="CocoaLumberjack" CONFIG_NAME="Debug" SCHEME_NAME="CocoaLumberjack" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="DZNEmptyDataSet" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="DZNEmptyDataSet" CONFIG_NAME="Debug" SCHEME_NAME="DZNEmptyDataSet" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="DZNPhotoPickerController" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="DZNPhotoPickerController" CONFIG_NAME="Debug" SCHEME_NAME="DZNPhotoPickerController" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="QuickDialog" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="QuickDialog" CONFIG_NAME="Debug" SCHEME_NAME="QuickDialog" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="SDWebImage" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="SDWebImage" CONFIG_NAME="Debug" SCHEME_NAME="SDWebImage" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="false" name="SWTableViewCell" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="Pods" TARGET_NAME="SWTableViewCell" CONFIG_NAME="Debug" SCHEME_NAME="SWTableViewCell" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <list size="12">
+      <item index="0" class="java.lang.String" itemvalue="Application.AddUrl" />
+      <item index="1" class="java.lang.String" itemvalue="Application.SafariExtension" />
+      <item index="2" class="java.lang.String" itemvalue="Application.ThingsIWant" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Pods-ThingsIWant" />
+      <item index="4" class="java.lang.String" itemvalue="Application.AFNetworking" />
+      <item index="5" class="java.lang.String" itemvalue="Application.ChameleonFramework" />
+      <item index="6" class="java.lang.String" itemvalue="Application.CocoaLumberjack" />
+      <item index="7" class="java.lang.String" itemvalue="Application.DZNEmptyDataSet" />
+      <item index="8" class="java.lang.String" itemvalue="Application.DZNPhotoPickerController" />
+      <item index="9" class="java.lang.String" itemvalue="Application.QuickDialog" />
+      <item index="10" class="java.lang.String" itemvalue="Application.SDWebImage" />
+      <item index="11" class="java.lang.String" itemvalue="Application.SWTableViewCell" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="874393f2-2e90-4369-b454-ac7e8e75dd5e" name="Default" comment="" />
+      <created>1448526148507</created>
+      <option name="number" value="Default" />
+      <updated>1448526148507</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="1001" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ThingsIWant/ThingsIWant.xcdatamodeld/ThingsIWant 2.xcdatamodel/contents">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThingsIWant/Data.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4373928">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26978418">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

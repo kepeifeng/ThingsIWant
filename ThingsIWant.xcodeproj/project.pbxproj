@@ -30,7 +30,6 @@
 		379BE8E61A7D1202002D4A85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BE8E51A7D1202002D4A85 /* AppDelegate.m */; };
 		379BE8E91A7D1202002D4A85 /* ThingsIWant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379BE8E71A7D1202002D4A85 /* ThingsIWant.xcdatamodeld */; };
 		379BE8EC1A7D1202002D4A85 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BE8EB1A7D1202002D4A85 /* ViewController.m */; };
-		379BE8EF1A7D1202002D4A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379BE8ED1A7D1202002D4A85 /* Main.storyboard */; };
 		379BE8F11A7D1202002D4A85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379BE8F01A7D1202002D4A85 /* Images.xcassets */; };
 		379BE8F41A7D1202002D4A85 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379BE8F21A7D1202002D4A85 /* LaunchScreen.xib */; };
 		379BE9001A7D1202002D4A85 /* ThingsIWantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BE8FF1A7D1202002D4A85 /* ThingsIWantTests.m */; };
@@ -121,7 +120,6 @@
 		379BE8E81A7D1202002D4A85 /* ThingsIWant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThingsIWant.xcdatamodel; sourceTree = "<group>"; };
 		379BE8EA1A7D1202002D4A85 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		379BE8EB1A7D1202002D4A85 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		379BE8EE1A7D1202002D4A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		379BE8F01A7D1202002D4A85 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		379BE8F31A7D1202002D4A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		379BE8F91A7D1202002D4A85 /* ThingsIWantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThingsIWantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,7 +240,6 @@
 				379BE8EB1A7D1202002D4A85 /* ViewController.m */,
 				184BB8AB1A81EC9A009CD3B8 /* ImageTableViewCell.h */,
 				184BB8AC1A81EC9A009CD3B8 /* ImageTableViewCell.m */,
-				379BE8ED1A7D1202002D4A85 /* Main.storyboard */,
 				379BE8F21A7D1202002D4A85 /* LaunchScreen.xib */,
 				3720FD5A1A812BC100F57F47 /* ItemDetailViewController.h */,
 				3720FD5B1A812BC100F57F47 /* ItemDetailViewController.m */,
@@ -375,6 +372,7 @@
 				379BE8DB1A7D1202002D4A85 /* Resources */,
 				EE212B1B8C61EFE67CF385B5 /* Copy Pods Resources */,
 				184BB97E1A820D45009CD3B8 /* Embed App Extensions */,
+				990BC42B4D40676ECF00C257 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,12 +414,15 @@
 				TargetAttributes = {
 					184BB96E1A820D45009CD3B8 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = B83FF6M6VW;
 					};
 					184BB9951A820F54009CD3B8 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = B83FF6M6VW;
 					};
 					379BE8DC1A7D1202002D4A85 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = B83FF6M6VW;
 					};
 					379BE8F81A7D1202002D4A85 = {
 						CreatedOnToolsVersion = 6.1;
@@ -472,7 +473,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EF490F1A8B6D91008B3670 /* appicon.png in Resources */,
-				379BE8EF1A7D1202002D4A85 /* Main.storyboard in Resources */,
 				379BE8F41A7D1202002D4A85 /* LaunchScreen.xib in Resources */,
 				18C239E01A88BDF2009EB734 /* AppIcons.xcassets in Resources */,
 				379BE8F11A7D1202002D4A85 /* Images.xcassets in Resources */,
@@ -502,6 +502,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		990BC42B4D40676ECF00C257 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingsIWant/Pods-ThingsIWant-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE212B1B8C61EFE67CF385B5 /* Copy Pods Resources */ = {
@@ -587,14 +602,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		379BE8ED1A7D1202002D4A85 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				379BE8EE1A7D1202002D4A85 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		379BE8F21A7D1202002D4A85 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -609,6 +616,8 @@
 		184BB97C1A820D45009CD3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -616,6 +625,7 @@
 				INFOPLIST_FILE = SafariExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -623,9 +633,12 @@
 		184BB97D1A820D45009CD3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SafariExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -633,6 +646,8 @@
 		184BB9A31A820F54009CD3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -640,6 +655,7 @@
 				INFOPLIST_FILE = AddUrl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -647,9 +663,12 @@
 		184BB9A41A820F54009CD3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AddUrl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -671,7 +690,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -713,7 +733,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -737,11 +758,15 @@
 			baseConfigurationReference = 11F4BFC88594A8C19F6BACE5 /* Pods-ThingsIWant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
 				GCC_PREFIX_HEADER = "ThingsIWant/ThingsIWant-Prefix.pch";
 				INFOPLIST_FILE = ThingsIWant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -750,11 +775,15 @@
 			baseConfigurationReference = C5FF5569C78FBCF163F930D2 /* Pods-ThingsIWant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: kentke@qq.com (75NVXK46SY)";
 				GCC_PREFIX_HEADER = "ThingsIWant/ThingsIWant-Prefix.pch";
 				INFOPLIST_FILE = ThingsIWant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

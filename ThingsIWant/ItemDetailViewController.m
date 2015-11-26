@@ -12,9 +12,9 @@
 #import "Url.h"
 #import "Note.h"
 #import "Private.h"
+#import <DZNPhotoPickerController/Classes/DZNPhotoPickerController.h>
 
-#import <DZNPhotoPickerController.h>
-#import <UIImagePickerController+Edit.h>
+//#import <UIImagePickerController+Edit.h>
 
 
 typedef NS_ENUM(NSUInteger, DetailSection) {
@@ -54,30 +54,39 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 + (void)initialize
 {
-    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerService500px
+    [DZNPhotoPickerController registerService:DZNPhotoPickerControllerService500px
                                       consumerKey:k500pxConsumerKey
-                                   consumerSecret:k500pxConsumerSecret];
+                                   consumerSecret:k500pxConsumerSecret
+     subscription:(DZNPhotoPickerControllerSubscriptionFree)];
     
-    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceFlickr
+    [DZNPhotoPickerController registerService:DZNPhotoPickerControllerServiceFlickr
                                       consumerKey:kFlickrConsumerKey
-                                   consumerSecret:kFlickrConsumerSecret];
+                               consumerSecret:kFlickrConsumerSecret
+                                 subscription:(DZNPhotoPickerControllerSubscriptionFree)];
     
-    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceInstagram
+    [DZNPhotoPickerController registerService:DZNPhotoPickerControllerServiceInstagram
                                       consumerKey:kInstagramConsumerKey
-                                   consumerSecret:kInstagramConsumerSecret];
+                               consumerSecret:kInstagramConsumerSecret
+                                 subscription:(DZNPhotoPickerControllerSubscriptionFree)];
     
-    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceGoogleImages
+    [DZNPhotoPickerController registerService:DZNPhotoPickerControllerServiceGoogleImages
                                       consumerKey:kGoogleImagesConsumerKey
-                                   consumerSecret:kGoogleImagesSearchEngineID];
+                               consumerSecret:kGoogleImagesSearchEngineID
+                                 subscription:(DZNPhotoPickerControllerSubscriptionFree)];
     
     //Bing does not require a secret. Rather just an "Account Key"
-    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceBingImages
+    [DZNPhotoPickerController registerService:DZNPhotoPickerControllerServiceBingImages
                                       consumerKey:kBingImagesAccountKey
-                                   consumerSecret:nil];
+                               consumerSecret:nil
+                                 subscription:(DZNPhotoPickerControllerSubscriptionFree)];
     
-    [DZNPhotoPickerController registerFreeService:DZNPhotoPickerControllerServiceGettyImages
+/*
+    [DZNPhotoPickerController registerService:DZNPhotoPickerControllerServiceGettyImages
                                       consumerKey:kGettyImagesConsumerKey
-                                   consumerSecret:kGettyImagesConsumerSecret];
+                               consumerSecret:kGettyImagesConsumerSecret
+                                 subscription:(DZNPhotoPickerControllerSubscriptionFree)];
+
+*/
 }
 
 -(NSManagedObjectContext *)manageObjectContext{

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface AppDelegate ()
 
@@ -18,11 +19,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    ViewController * viewController = [[ViewController alloc] init];
-    UINavigationController * navContoller = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.window.rootViewController = navContoller;
+    
+    [self setupLeanCloudWithLaunchOptions:launchOptions];
+
+    [self setupWindow];
+//    ViewController * viewController = [[ViewController alloc] init];
+//    UINavigationController * navContoller = [[UINavigationController alloc] initWithRootViewController:viewController];
+//    self.window.rootViewController = navContoller;
     [self setupAppAppearance];
     return YES;
+}
+-(void)setupWindow{
+
+    UIWindow * window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.tintColor = APP_COLOR;
+    
+    ViewController * mainViewController = [ViewController new];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    
+    [self.window makeKeyAndVisible];
+
+}
+
+-(void)setupLeanCloudWithLaunchOptions:(NSDictionary *)launchOptions{
+
+    //如果使用美国站点，请加上这行代码 [AVOSCloud useAVCloudUS];
+    [AVOSCloud setApplicationId:@"mJRVKd2rw6pRCJdAAt6B15aj"
+                      clientKey:@"8tdLRw8msMoYOTN8Kvplb532"];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
 
 -(void)setupAppAppearance{

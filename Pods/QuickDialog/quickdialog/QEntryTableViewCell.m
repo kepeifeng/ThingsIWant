@@ -86,7 +86,7 @@
     if (_entryElement.title == NULL && _entryElement.image!=NULL){
         self.imageView.image = _entryElement.image;
         [self.imageView sizeToFit];
-        return CGRectMake( self.imageView.frame.size.width+10, 10, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
+        return CGRectMake(CGRectGetMaxX(self.imageView.frame) + 10, 10, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -98,12 +98,16 @@
                 CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
                 CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByWordWrapping] ;
-                CGFloat width = size.width + imageWidth;
+                CGFloat width = size.width + imageWidth + 20;
                 if (width>titleWidth)
                     titleWidth = width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra, self.frame.size.height-20);
+        int inset = 0;
+		if ([self respondsToSelector:@selector(separatorInset)]) {
+			inset = self.separatorInset.left;
+		};
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra-inset, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
@@ -146,7 +150,7 @@
 
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
-    } else if (_textField==nil){
+    } else if (_textField!=nil){
         UIToolbar *toolbar = [self createActionBar];
         toolbar.barStyle = element.appearance.toolbarStyle;
         toolbar.translucent = element.appearance.toolbarTranslucent;
@@ -166,10 +170,11 @@
 
 -(void)recalculateEntryFieldPosition {
     _entryElement.parentSection.entryPosition = CGRectZero;
-    _textField.frame = [self calculateFrameForEntryElement];
+    CGRect textFieldFrame = [self calculateFrameForEntryElement];
     CGRect labelFrame = self.textLabel.frame;
     self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-            _entryElement.parentSection.entryPosition.origin.x-_entryElement.appearance.cellBorderWidth, labelFrame.size.height);
+            textFieldFrame.origin.x  - labelFrame.origin.x, labelFrame.size.height);
+    _textField.frame = CGRectMake(textFieldFrame.origin.x, textFieldFrame.origin.y, self.contentView.bounds.size.width - textFieldFrame.origin.x - 20, textFieldFrame.size.height);
     
 }
 
