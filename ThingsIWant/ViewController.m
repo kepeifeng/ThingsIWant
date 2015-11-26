@@ -29,6 +29,7 @@ SWTableViewCellDelegate>
     
     _objectList = [NSMutableArray new];
     UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:(UITableViewStylePlain)];
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];

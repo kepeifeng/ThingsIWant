@@ -8,8 +8,9 @@ target 'ThingsIWant' do
 	pod 'SWTableViewCell'
 	pod 'CocoaLumberjack'
 	pod 'AFNetworking'
-  pod 'DZNPhotoPickerController'
-  pod 'AVOSCloud'
+    pod 'DZNPhotoPickerController'
+    pod 'AVOSCloud'
+
 end
 
 target 'ThingsIWantTests' do
