@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 
 @interface AppDelegate ()
@@ -29,6 +29,7 @@
     [self setupAppAppearance];
     return YES;
 }
+
 -(void)setupWindow{
 
     UIWindow * window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -36,7 +37,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.tintColor = APP_COLOR;
     
-    ViewController * mainViewController = [ViewController new];
+    MainViewController * mainViewController = [MainViewController new];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     
     [self.window makeKeyAndVisible];

@@ -42,7 +42,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     
     UIImageView * _mainImageView;
     
-    UIEdgeInsets _originalContentOffset;
+//    UIEdgeInsets _originalContentOffset;
     
     UIToolbar * _inputToolBar;
     
@@ -99,10 +99,11 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 //    self.title = self.thing.name;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIBarButtonItem * addImageButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCamera) target:self action:@selector(addImageButtonTapped:)];
-    UIBarButtonItem * addUrlButton = [[UIBarButtonItem alloc] initWithTitle:@"Url" style:(UIBarButtonItemStylePlain) target:self action:@selector(addUrlButtonTapped:)];
-    UIBarButtonItem * addNoteButton = [[UIBarButtonItem alloc] initWithTitle:@"Note" style:(UIBarButtonItemStylePlain) target:self action:@selector(addNoteButtonTapped:)];
-    self.navigationItem.rightBarButtonItems = @[addImageButton, addUrlButton, addNoteButton];
+//    UIBarButtonItem * addImageButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCamera) target:self action:@selector(addImageButtonTapped:)];
+//    UIBarButtonItem * addUrlButton = [[UIBarButtonItem alloc] initWithTitle:@"Url" style:(UIBarButtonItemStylePlain) target:self action:@selector(addUrlButtonTapped:)];
+//    UIBarButtonItem * addNoteButton = [[UIBarButtonItem alloc] initWithTitle:@"Note" style:(UIBarButtonItemStylePlain) target:self action:@selector(addNoteButtonTapped:)];
+//    self.navigationItem.rightBarButtonItems = @[addImageButton, addUrlButton, addNoteButton];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addButtonTapped:)];
 
     UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:(UITableViewStyleGrouped)];
     tableView.delegate = self;
@@ -117,6 +118,35 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     
     [self updateView];
     
+}
+
+-(void)addButtonTapped:(id)sender{
+
+    UIAlertController * alertController = [[UIAlertController alloc] init];
+    UIAlertAction * imageItem = [UIAlertAction actionWithTitle:@"Image" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self addImageButtonTapped:nil];
+    }];
+    [alertController addAction:imageItem];
+    
+    UIAlertAction * urlItem = [UIAlertAction actionWithTitle:@"Link" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self addUrlButtonTapped:nil];
+    }];
+    [alertController addAction:urlItem];
+    
+    UIAlertAction * noteItem = [UIAlertAction actionWithTitle:@"Note" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self addNoteButtonTapped:nil];
+    }];
+    [alertController addAction:noteItem];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:(UIAlertActionStyleCancel) handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:NULL];
+    
+}
+
+-(void)dealloc{
+
+    [_titleField removeObserver:self forKeyPath:@"contentSize"];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -171,10 +201,9 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
 
 
-    _originalContentOffset = self.tableView.contentInset;
+//    _originalContentOffset = self.tableView.contentInset;
     
-    UIEdgeInsets contentInsets = _originalContentOffset;
-    contentInsets.bottom = kbSize.height;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, kbSize.height, 0);
     self.tableView.contentInset = contentInsets;
     self.tableView.scrollIndicatorInsets = contentInsets;
     
@@ -198,7 +227,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
-    UIEdgeInsets contentInsets = _originalContentOffset;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, 0, 0);
     self.tableView.contentInset = contentInsets;
     self.tableView.scrollIndicatorInsets = contentInsets;
     
@@ -525,10 +554,11 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 - (void)presentPhotoSearch:(id)sender
 {
     DZNPhotoPickerController *picker = [DZNPhotoPickerController new];
-    picker.supportedServices = DZNPhotoPickerControllerServiceFlickr | DZNPhotoPickerControllerServiceGoogleImages | DZNPhotoPickerControllerServiceBingImages;
+//    picker.supportedServices = DZNPhotoPickerControllerServiceFlickr | DZNPhotoPickerControllerServiceGoogleImages | DZNPhotoPickerControllerServiceBingImages;
+    picker.supportedServices = DZNPhotoPickerControllerServiceBingImages;
     picker.allowsEditing = NO;
     picker.cropMode = DZNPhotoEditorViewControllerCropModeSquare;
-    picker.initialSearchTerm = @"California";
+    picker.initialSearchTerm = self.thing.name;
     picker.enablePhotoDownload = YES;
     picker.allowAutoCompletedSearch = YES;
     

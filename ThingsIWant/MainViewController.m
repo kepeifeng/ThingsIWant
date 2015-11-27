@@ -6,23 +6,33 @@
 //  Copyright (c) 2015年 Kent. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import <CoreData/CoreData.h>
 #import "Data.h"
 #import <SWTableViewCell.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "ItemDetailViewController.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource,
-SWTableViewCellDelegate>
+@interface MainViewController ()<UITableViewDelegate, UITableViewDataSource,
+SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 @property (nonatomic) UITableView * tableView;
 @end
 
 
-@implementation ViewController{
+@implementation MainViewController{
 
     NSMutableArray * _objectList;
 }
 
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = NSLocalizedString(@"I Want It",nil);
+        self.navigationItem.title = nil;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -32,8 +42,11 @@ SWTableViewCellDelegate>
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.tableFooterView = [UIView new];
     [self.view addSubview:tableView];
     self.tableView = tableView;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.emptyDataSetSource = self;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addButtonTapped:)];
     
@@ -76,14 +89,14 @@ SWTableViewCellDelegate>
 
 -(void)addButtonTapped:(id)sender{
 
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Add New Thing" message:nil preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"One More Thing" message:nil preferredStyle:(UIAlertControllerStyleAlert)];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
        textField.placeholder = @"Name";
     }];
     
     
-    UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+    UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
         NSString * name = [(UITextField *)[alertController.textFields objectAtIndex:0] text];
         if (name.length) {
@@ -157,7 +170,7 @@ SWTableViewCellDelegate>
     
     Thing * thing = [self thingAtIndexPath:indexPath];
     cell.textLabel.text = thing.name;
-    cell.detailTextLabel.text = ([thing.price integerValue] == 0)?@"":[NSString stringWithFormat:@"%ld",[thing.price integerValue]];
+    cell.detailTextLabel.text = ([thing.price integerValue] == 0)?@"":[NSString stringWithFormat:@"%ld",(long)[thing.price integerValue]];
     
     return cell;
 }
@@ -185,5 +198,17 @@ SWTableViewCellDelegate>
 }
 
 
+-(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    return [UIImage imageNamed:@"empty"];
+}
+
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    return [[NSAttributedString alloc] initWithString:@"啥也没有" attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
+}
+
+-(NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+
+    return [[NSAttributedString alloc] initWithString:@"现在就来一个" attributes:@{NSForegroundColorAttributeName:APP_COLOR}];
+}
 
 @end
