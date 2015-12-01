@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuickDialog.h>
+#import "Link.h"
+@protocol LinkEditorViewControllerDelegate;
+@interface LinkEditorViewController : QuickDialogController
+@property (nonatomic, strong) Link * link;
+@property (nonatomic, weak) id<LinkEditorViewControllerDelegate> delegate;
+@end
 
-@interface LinkEditorViewController : UIViewController
+@protocol LinkEditorViewControllerDelegate <NSObject>
+
+-(void)linkEditorViewController:(LinkEditorViewController *)viewController didSavedLink:(Link *)link;
 
 @end

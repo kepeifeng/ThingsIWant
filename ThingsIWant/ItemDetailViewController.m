@@ -9,16 +9,23 @@
 #import "ItemDetailViewController.h"
 #import "Image.h"
 #import "ImageTableViewCell.h"
-#import "Url.h"
+#import "Link.h"
 #import "Note.h"
 #import "Private.h"
 #import <DZNPhotoPickerController/Classes/DZNPhotoPickerController.h>
-
+#import "PriceEditorViewController.h"
+#import "LinkEditorViewController.h"
+#import "NoteEditorViewController.h"
+#import <QuickDialog/QWebViewController.h>
 //#import <UIImagePickerController+Edit.h>
+#import <SwipeView.h>
+#import "SyncManager.h"
+#import "FileHelper.h"
+
 
 
 typedef NS_ENUM(NSUInteger, DetailSection) {
-    DetailSectionImage,
+    DetailSectionMainInfo,
     DetailSectionPrice,
     DetailSectionLink,
     DetailSectionNote
@@ -30,17 +37,18 @@ NSInteger const numberOfImagesPerRow = 4;
 #define TAG_PRICE_FIELD 10001
 
 @interface ItemDetailViewController ()<UIImagePickerControllerDelegate, UITableViewDataSource,
-UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, PriceEditorViewControllerDelegate,
+LinkEditorViewControllerDelegate,NoteEditorViewControllerDelegate, SwipeViewDataSource, SwipeViewDelegate>
 @property (nonatomic,readonly) NSManagedObjectContext * manageObjectContext;
 @property (nonatomic) UITableView * tableView;
 @end
 
 @implementation ItemDetailViewController{
-    NSArray * _images;
-    NSArray * _urls;
-    NSArray * _notes;
+    NSMutableArray * _images;
+    NSMutableArray * _urls;
+    NSMutableArray * _notes;
     
-    UIImageView * _mainImageView;
+    SwipeView * _mainImageView;
     
 //    UIEdgeInsets _originalContentOffset;
     
@@ -49,6 +57,8 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     __weak UIView * _firstResponder;
     
     UITextView * _titleField;
+    
+    
 }
 
 
@@ -100,7 +110,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     self.view.backgroundColor = [UIColor whiteColor];
     
 //    UIBarButtonItem * addImageButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCamera) target:self action:@selector(addImageButtonTapped:)];
-//    UIBarButtonItem * addUrlButton = [[UIBarButtonItem alloc] initWithTitle:@"Url" style:(UIBarButtonItemStylePlain) target:self action:@selector(addUrlButtonTapped:)];
+//    UIBarButtonItem * addUrlButton = [[UIBarButtonItem alloc] initWithTitle:@"Link" style:(UIBarButtonItemStylePlain) target:self action:@selector(addUrlButtonTapped:)];
 //    UIBarButtonItem * addNoteButton = [[UIBarButtonItem alloc] initWithTitle:@"Note" style:(UIBarButtonItemStylePlain) target:self action:@selector(addNoteButtonTapped:)];
 //    self.navigationItem.rightBarButtonItems = @[addImageButton, addUrlButton, addNoteButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addButtonTapped:)];
@@ -112,7 +122,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     [self.view addSubview:tableView];
     
     self.tableView = tableView;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+//    self.tableView.backgroundColor = [UIColor whiteColor];
     
     [self registerForKeyboardNotifications];
     
@@ -123,6 +133,12 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 -(void)addButtonTapped:(id)sender{
 
     UIAlertController * alertController = [[UIAlertController alloc] init];
+    
+    UIAlertAction * priceItem = [UIAlertAction actionWithTitle:@"Price" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self addPriceButtonTapped:nil];
+    }];
+    [alertController addAction:priceItem];
+    
     UIAlertAction * imageItem = [UIAlertAction actionWithTitle:@"Image" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         [self addImageButtonTapped:nil];
     }];
@@ -171,6 +187,12 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     }
 }
 
+-(void)addPriceButtonTapped:(id)sender{
+
+    PriceEditorViewController * priceEditorVC = [[PriceEditorViewController alloc] init];
+    priceEditorVC.delegate = self;
+    [self.navigationController pushViewController:priceEditorVC animated:YES];
+}
 
 -(void)doneButtonTapped:(id)sender{
 
@@ -243,6 +265,11 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 -(void)addUrlButtonTapped:(id)sender{
     
+    LinkEditorViewController * linkEditorVC = [LinkEditorViewController new];
+    linkEditorVC.delegate = self;
+    [self.navigationController pushViewController:linkEditorVC animated:YES];
+    
+    /*
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"New URL" message:nil preferredStyle:(UIAlertControllerStyleAlert)];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
@@ -251,7 +278,8 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"URL";
     }];
-    
+
+
     UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
         NSString * title = [(UITextField *)[alertController.textFields objectAtIndex:0] text];
@@ -259,7 +287,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
         if (title.length || url.length) {
             
             
-            Url * urlEntity = (Url *)[NSEntityDescription insertNewObjectForEntityForName:@"Url" inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
+            Url * urlEntity = (Url *)[NSEntityDescription insertNewObjectForEntityForName:@"Link" inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
             
             urlEntity.url = url;
             urlEntity.title = title;
@@ -281,9 +309,15 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     
     
     [self presentViewController:alertController animated:YES completion:nil];
+*/
 }
 
 -(void)addNoteButtonTapped:(id)sender{
+    
+    NoteEditorViewController * noteEditorVC = [[NoteEditorViewController alloc] init];
+    noteEditorVC.delegate = self;
+    [self.navigationController pushViewController:noteEditorVC animated:YES];
+/*
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"New Note" message:nil preferredStyle:(UIAlertControllerStyleAlert)];
     
@@ -328,6 +362,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     
     
     [self presentViewController:alertController animated:YES completion:nil];
+*/
 }
 
 
@@ -336,7 +371,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:self.manageObjectContext];
     [fetchRequest setEntity:entity];
     // Specify criteria for filtering which objects to fetch
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"item == %@", self.thing];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productId == %@", self.thing.uuid];
     [fetchRequest setPredicate:predicate];
     // Specify how the fetched objects should be sorted
     //NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"<#key#>"
@@ -362,10 +397,10 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 }
 -(void)fetchUrl{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Url" inManagedObjectContext:self.manageObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Link" inManagedObjectContext:self.manageObjectContext];
     [fetchRequest setEntity:entity];
     // Specify criteria for filtering which objects to fetch
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"item == %@", self.thing];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productId == %@", self.thing.uuid];
     [fetchRequest setPredicate:predicate];
     // Specify how the fetched objects should be sorted
     //NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"<#key#>"
@@ -384,7 +419,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     _urls = notes;
     
     for (NSManagedObject * object in fetchedObjects){
-        Url * note = (Url *)object;
+        Link * note = (Link *)object;
         NSLog(@"note: %@", note.url);
     }
     
@@ -396,7 +431,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.manageObjectContext];
     [fetchRequest setEntity:entity];
     // Specify criteria for filtering which objects to fetch
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"item == %@", self.thing];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productId == %@", self.thing.uuid];
     [fetchRequest setPredicate:predicate];
     // Specify how the fetched objects should be sorted
     //NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"<#key#>"
@@ -422,7 +457,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 }
 
 
--(void)setThing:(Thing *)thing{
+-(void)setThing:(Product *)thing{
     _thing = thing;
     [self updateView];
 }
@@ -435,8 +470,9 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     [self fetchNote];
     
     
-    UIView * headerView = [[UIView alloc] initWithFrame:self.view.bounds];
-    
+    UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 280)];
+/*
+ 
     if (!_titleField) {
         UITextView * titleLabel = [[UITextView alloc] initWithFrame:(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200))];
         titleLabel.tag = TAG_TITLE_FIELD;
@@ -452,24 +488,26 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     }
     
     [headerView addSubview:_titleField];
+*/
 
     
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:(CGRectMake(0, CGRectGetMaxY(_titleField.frame), CGRectGetWidth(self.view.frame), 200))];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [headerView addSubview:imageView];
-    _mainImageView = imageView;
-    
-    CGRect headerViewRect = headerView.frame;
     if (_images.count) {
-        Image * image = [_images firstObject];
-        _mainImageView.image = [UIImage imageWithContentsOfFile:[[self imageFolder] stringByAppendingPathComponent:image.filename]];
-        headerViewRect.size.height = CGRectGetMaxY(_mainImageView.frame);
+
+        _mainImageView = [[SwipeView alloc] initWithFrame:headerView.bounds];
+        _mainImageView.dataSource = self;
+        _mainImageView.delegate = self;
+        [headerView addSubview:_mainImageView];
+//        headerViewRect.size.height = CGRectGetMaxY(_mainImageView.frame);
     }else{
-        _mainImageView.image = nil;
-        [_mainImageView removeFromSuperview];
-        headerViewRect.size.height = CGRectGetMaxY(_titleField.frame);
+        
+        UIButton * addImageButton = [[UIButton alloc] initWithFrame:headerView.bounds];
+//        [addImageButton setTitle:@"Add Image" forState:(UIControlStateNormal)];
+        addImageButton.tintColor = [UIColor lightGrayColor];
+        [addImageButton setImage:[[UIImage imageNamed:@"add_photo"] imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)] forState:(UIControlStateNormal)];
+        [addImageButton addTarget:self action:@selector(addImageButtonTapped:) forControlEvents:(UIControlEventTouchUpInside)];
+        [headerView addSubview:addImageButton];
     }
-    headerView.frame = headerViewRect;
+
     
     self.tableView.tableHeaderView = nil;
     self.tableView.tableHeaderView = headerView;
@@ -541,7 +579,7 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     if (!image) image = payload[UIImagePickerControllerOriginalImage];
     
     
-    [self saveImage:image];
+    [FileHelper saveImage:image withProductId:self.thing.uuid];
     [self updateView];
     
 //    self.imageView.image = image;
@@ -607,17 +645,8 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 }*/
 
 
--(NSString *)imageFolder{
 
-    return [[self appFileFolderPath] stringByAppendingPathComponent:@"images"];
-}
 
--(NSString *)appFileFolderPath
-{
-    NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    NSString *documentPath = [searchPaths lastObject];
-    return documentPath;
-}
 
 #pragma mark - ImagePickerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
@@ -625,50 +654,33 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
 
-    [self saveImage:image];
+    [FileHelper saveImage:image withProductId:self.thing.uuid];
     [self updateView];
     
 }
 
--(void)saveImage:(UIImage *)image{
-    
-    NSData * data = UIImageJPEGRepresentation(image, 0.8);
-    
-    NSString *guid = [[NSUUID new] UUIDString];
-    
-    NSString * fileFormat = @"jpg";
-    NSString * filename =[NSString stringWithFormat:@"%@.%@", guid, fileFormat];
-    NSString * imagePath = [[self imageFolder] stringByAppendingPathComponent:filename];
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:[self imageFolder]] == NO){
-        
-        [[NSFileManager defaultManager] createDirectoryAtPath:[self imageFolder] withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    [data writeToFile:imagePath atomically:YES];
-    
-    CGSize imageSize = [image size];
-    
-    [self insertImageWithFilename:filename imageSize:imageSize];
-    
-}
 
--(void)insertImageWithFilename:(NSString *)filename imageSize:(CGSize)imageSize{
 
-    NSEntityDescription * desc = [NSEntityDescription entityForName:@"Image" inManagedObjectContext:self.manageObjectContext];
-    
-    Image * image = (Image *)[[NSManagedObject alloc] initWithEntity:desc insertIntoManagedObjectContext:self.manageObjectContext];
-    image.filename = filename;
-    image.width = @(imageSize.width);
-    image.height = @(imageSize.height);
-    image.item = self.thing;
-    
-    [self.manageObjectContext insertObject:image];
-    [self.manageObjectContext save:nil];
-    
-    
-}
 
 #pragma mark - Table View Delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGFloat y = scrollView.contentOffset.y+64;
+    
+    if (y<0) {
+        CGFloat scale = (280 - y)/280;
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, y/2);
+        transform = CGAffineTransformScale(transform, scale, scale);
+
+        _mainImageView.transform = transform;
+    }else{
+        if (CGAffineTransformIsIdentity(_mainImageView.transform) == NO ) {
+            
+            _mainImageView.transform = CGAffineTransformIdentity;
+        }
+    }
+
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
@@ -677,49 +689,74 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
-        case DetailSectionImage:
-            return (_images.count / numberOfImagesPerRow)+1;
+            
+        case DetailSectionMainInfo:
+            return 1;
             break;
         case DetailSectionLink:
-            return _urls.count;
+            return (_urls.count)?:1;
             break;
         case DetailSectionNote:
-            return _notes.count;
+            return _notes.count?:1;
             break;
         case DetailSectionPrice:
-            return 1;
+            return self.thing.price.count?:1;
         default:
             return 0;
             break;
     }
 }
 
+-(UITableViewCell *)emptyCellWithTitle:(NSString *)title forTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath{
+
+    static NSString * EmptyCellIdentity = @"EmptyCellIdentity";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:EmptyCellIdentity];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:EmptyCellIdentity];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    
+    cell.textLabel.text = title;
+    return cell;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 
-    if (indexPath.section == DetailSectionImage ) {
-        ImageTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
+    if (indexPath.section == DetailSectionMainInfo ) {
+        
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
         if (!cell) {
-            cell = [[ImageTableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"ImageCell"];
-
-            cell.numberOfImagesPerRow = numberOfImagesPerRow;
+            cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"TitleCell"];
+            cell.textLabel.numberOfLines = 0;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.images = [self imagesAtRow:indexPath.row];
+        
+        cell.textLabel.text = self.thing.name;
         return cell;
+        
     }else if (indexPath.section == DetailSectionLink){
     
+        if (_urls.count == 0) {
+            return [self emptyCellWithTitle:@"Add Link" forTableView:tableView atIndexPath:indexPath];
+        }
+        
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UrlCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"UrlCell"];
             cell.detailTextLabel.textColor = [UIColor lightGrayColor];
         }
         
-        Url * url = [self urlAtIndexPath:indexPath];
+        Link * url = [self linkAtIndexPath:indexPath];
         cell.textLabel.text = url.title;
         cell.detailTextLabel.text = url.url;
         
         return cell;
     }else if (indexPath.section == DetailSectionNote){
+        
+        if (_notes.count == 0) {
+            return [self emptyCellWithTitle:@"Add Note" forTableView:tableView atIndexPath:indexPath];
+        }
     
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell"];
         if (!cell) {
@@ -737,8 +774,15 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
         return cell;
     }else if (indexPath.section == DetailSectionPrice){
     
+        if (self.thing.price.count == 0) {
+            return [self emptyCellWithTitle:@"Add Price" forTableView:tableView atIndexPath:indexPath];
+        }
+        
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PriceCell"];
         if (!cell) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"PriceCell"];
+/*
             cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier:@"PriceCell"];
 //            UITextField * priceField = [[UITextField alloc] initWithFrame:(CGRectMake(80, 0, CGRectGetWidth(cell.frame) - 80, CGRectGetHeight(cell.frame)))];
             UITextField * priceField = [[UITextField alloc] initWithFrame:cell.bounds];
@@ -748,11 +792,16 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
             priceField.textAlignment = NSTextAlignmentCenter;
             priceField.delegate = self;
             [cell.contentView addSubview:priceField];
+*/
         }
         
 
-        UITextField * priceField = (UITextField *)[cell viewWithTag:TAG_PRICE_FIELD];
-        priceField.text = ([self.thing.price integerValue]==0)?@"":[NSString stringWithFormat:@"%@", self.thing.price];
+        AKPrice * price = [self.thing.price objectAtIndex:indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%.2f", price.value];
+        cell.detailTextLabel.text = price.note;
+        
+//        UITextField * priceField = (UITextField *)[cell viewWithTag:TAG_PRICE_FIELD];
+//        priceField.text = ([self.thing.price integerValue]==0)?@"":[NSString stringWithFormat:@"%@", self.thing.price];
         
         return cell;
         
@@ -764,8 +813,11 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    if (indexPath.section == DetailSectionImage) {
-        return 74;
+    if (indexPath.section == DetailSectionMainInfo) {
+//        return 74;
+        CGRect boundingSize = [self.thing.name boundingRectWithSize:(CGSizeMake(CGRectGetWidth(self.view.bounds) - 16 * 2, 9999)) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}
+                                             context:nil];
+        return MAX(44.0,boundingSize.size.height + 10);
     }
     
     return 74;
@@ -774,10 +826,20 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
-    UILabel * label = [[UILabel alloc] initWithFrame:(CGRectMake(10, 0, 100, 40))];
+    UIView * headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"SectionHeaderView"];
+    if (!headerView) {
+        headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), 40))];
+        UILabel * label = [[UILabel alloc] initWithFrame:(CGRectMake(10, 0, 100, 40))];
+        [headerView addSubview:label];
+        label.tag = 763083;
+    }
+    
+    UILabel * label = (UILabel *)[headerView viewWithTag:763083];
+    
     switch (section) {
-        case DetailSectionImage:
-            label.text = @"Image";
+        case DetailSectionMainInfo:
+//            label.text = @"Image";
+            return nil;
             break;
         case DetailSectionLink:
             label.text = @"Link";
@@ -792,18 +854,49 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
             return nil;
             break;
     }
-    return label;
+    return headerView;
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
-
+    if (section == DetailSectionMainInfo) {
+        return 0.01;
+    }
     return 40;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == DetailSectionLink) {
+        
+        if(_urls.count == 0){
+            [self addUrlButtonTapped:nil];
+            return;
+        }
+        
+        Link * link = [self linkAtIndexPath:indexPath];
+        QWebViewController * webController = [[QWebViewController alloc] initWithUrl:link.url];
+        [self.navigationController pushViewController:webController animated:YES];
+    }else if (indexPath.section == DetailSectionNote){
+        
+        if (_notes.count == 0) {
+            [self addNoteButtonTapped:nil];
+            return;
+        }
+        
+        Note * note = [self noteAtIndexPath:indexPath];
+        NoteEditorViewController * noteViewController = [[NoteEditorViewController alloc] init];
+        noteViewController.note = note;
+        [self.navigationController pushViewController: noteViewController animated:YES];
+    }else if (indexPath.section == DetailSectionPrice){
+    
+        if (self.thing.price.count == 0) {
+            [self addPriceButtonTapped:nil];
+            return;
+        }
+    }
 }
 
 -(NSArray *)imagesAtRow:(NSInteger)row{
@@ -820,13 +913,13 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     NSMutableArray * images = [NSMutableArray new];
     for (NSInteger i = startIndex; i<=endIndex; i++) {
         Image * imageEntity = [_images objectAtIndex:i];
-        UIImage * image = [UIImage imageWithContentsOfFile:[[self imageFolder] stringByAppendingPathComponent:imageEntity.filename]];
+        UIImage * image = [UIImage imageWithContentsOfFile:[[FileHelper imageFolder] stringByAppendingPathComponent:imageEntity.filename]];
         [images addObject:image];
     }
     return images;
 }
 
--(Url *)urlAtIndexPath:(NSIndexPath *)indexPath{
+-(Link *)linkAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.section != DetailSectionLink) {
         return nil;
@@ -843,68 +936,107 @@ UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
     return [_notes objectAtIndex:indexPath.row];
 }
 
-#pragma mark - Text Field Delegate
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    _firstResponder = textField;
-}
+-(void)priceEditorViewController:(PriceEditorViewController *)viewController didSavedPrice:(AKPrice *)price{
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    NSMutableArray * priceArray = [[NSMutableArray alloc] initWithArray:self.thing.price];
+    self.thing.price = priceArray;
 
-    [textField resignFirstResponder];
-    return NO;
-}
+    self.thing.updateTime = [[NSDate date] timeIntervalSince1970];
+//    price.updateTime = [[NSDate date] timeIntervalSince1970];
+    NSUInteger index = [priceArray indexOfObject:price];
+    if (index != NSNotFound) {
+        [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:DetailSectionPrice]] withRowAnimation:(UITableViewRowAnimationAutomatic)];
 
--(void)textFieldDidEndEditing:(UITextField *)textField{
-
-    if (textField.tag == TAG_PRICE_FIELD) {
-        float price = 0;
-        if (textField.text.length) {
-            price = [textField.text floatValue];
-            self.thing.price = [NSDecimalNumber decimalNumberWithString:textField.text];
+    }else{
+        [priceArray addObject:price];
+        if (priceArray.count == 1) {
+            [_tableView reloadSections:[NSIndexSet indexSetWithIndex:DetailSectionPrice] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }else{
-            self.thing.price = [NSDecimalNumber decimalNumberWithString:@"0"];
+            
+            [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:priceArray.count - 1 inSection:DetailSectionPrice]] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
-        [self.manageObjectContext save:nil];
+    }
+    
+
+    
+    [[APP_DELEGATE managedObjectContext] save:nil];
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+-(void)linkEditorViewController:(LinkEditorViewController *)viewController didSavedLink:(Link *)link{
+
+    if (!_urls) {
+        _urls = [[NSMutableArray alloc] init];
+    }
+    
+    link.updateTime = [[NSDate date] timeIntervalSince1970];
+    
+    NSUInteger index = [_urls indexOfObject:link];
+    if (index == NSNotFound) {
+        link.productId = self.thing.uuid;
+//        link.uuid = [[NSProcessInfo processInfo] globallyUniqueString];
+        [[APP_DELEGATE managedObjectContext] insertObject:link];
+        [_urls addObject:link];
+        if (_urls.count == 1) {
+            [_tableView reloadSections:[NSIndexSet indexSetWithIndex:DetailSectionLink] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        }else{
+            
+            [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_urls.count - 1 inSection:DetailSectionLink]] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        }
+    }else{
+        
+        [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:DetailSectionLink]] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+    }
+
+    [[APP_DELEGATE managedObjectContext] save:nil];
+
+
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+-(void)noteEditorViewController:(NoteEditorViewController *)viewController didSavedNote:(Note *)note{
+
+    if (!_notes) {
+        _notes = [[NSMutableArray alloc] init];
+    }
+    note.updateTime = [[NSDate date] timeIntervalSince1970];
+    NSUInteger index = [_notes indexOfObject:note];
+    if (index == NSNotFound) {
+        
+//        note.uuid = [[NSProcessInfo processInfo] globallyUniqueString];
+        [_notes addObject:note];
+        note.productId = self.thing.uuid;
+        [self.manageObjectContext insertObject:note];
+        if (_notes.count == 1) {
+            [_tableView reloadSections:[NSIndexSet indexSetWithIndex:DetailSectionNote] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        }else{
+            
+            [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_notes.count - 1 inSection:DetailSectionNote]] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        }
         
     }
+
+    [self.manageObjectContext save:nil];
+    [self.navigationController popToViewController:self animated:YES];
     
-
-    _firstResponder = nil;
-}
-
-#pragma mark - Text View Delegate
--(void)textViewDidBeginEditing:(UITextView *)textView{
-    _firstResponder = textView;
+    
     
 }
 
--(void)textViewDidEndEditing:(UITextView *)textView{
-    if(textView.tag == TAG_TITLE_FIELD){
-        self.thing.name = textView.text;
-        [self.manageObjectContext save:nil];
+-(NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView{
+    return _images.count;
+}
+
+-(UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
+
+    UIImageView * imageView = (UIImageView *)view;
+    if(!imageView){
+        imageView = [[UIImageView alloc] initWithFrame:swipeView.bounds];
     }
     
-    _firstResponder = nil;
+    Image * imageItem = _images[index];
+    imageView.image = [UIImage imageWithContentsOfFile:[[FileHelper imageFolder] stringByAppendingPathComponent:imageItem.filename]];
+    return imageView;
 }
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    
-    return YES;
-}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

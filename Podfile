@@ -10,6 +10,7 @@ target 'ThingsIWant' do
 	pod 'AFNetworking'
     pod 'DZNPhotoPickerController'
     pod 'AVOSCloud'
+    pod 'SwipeView'
 
 end
 

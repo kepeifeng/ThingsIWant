@@ -6,14 +6,16 @@
       <sourceFolder url="file://$MODULE_DIR$/AddUrl/ActionRequestHandler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/AddUrl/ActionRequestHandler.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/AddUrl/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Data/AKPrice.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Data/AKPrice.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Data/Image.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Data/Image.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Data/Link.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Data/Link.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Data/Note.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Data/Note.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Data/Thing.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Data/Thing.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Data/Url.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Data/Url.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Data/Product.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Data/Product.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.m" isTestSource="false" />
@@ -332,6 +334,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/SDWebImage/SDWebImage/UIImageView+WebCache.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SDWebImage/SDWebImage/UIView+WebCacheOperation.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SDWebImage/SDWebImage/UIView+WebCacheOperation.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SwipeView/SwipeView/SwipeView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SwipeView/SwipeView/SwipeView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SWTableViewCell/SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SWTableViewCell/SWTableViewCell/PodFiles/NSMutableArray+SWUtilityButtons.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SWTableViewCell/SWTableViewCell/PodFiles/SWCellScrollView.h" isTestSource="false" />
@@ -372,6 +376,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SDWebImage/SDWebImage-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SDWebImage/SDWebImage-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SDWebImage/SDWebImage.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwipeView/SwipeView-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwipeView/SwipeView-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwipeView/SwipeView.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SWTableViewCell/SWTableViewCell-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SWTableViewCell/SWTableViewCell-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SWTableViewCell/SWTableViewCell.xcconfig" isTestSource="false" />
@@ -394,15 +401,32 @@
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ItemDetailViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ItemDetailViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/LinkEditorViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/LinkEditorViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Login/LoginViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Login/LoginViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Login/RegisterViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Login/RegisterViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/main.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/MainViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/MainViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/NoteEditorViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/NoteEditorViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/NSString+Utility.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/NSString+Utility.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/PriceEditorViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/PriceEditorViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Resources/add_photo@2x.png" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/Resources/empty@2x.png" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ThingsIWant-Prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ThingsIWant.xcdatamodeld/ThingsIWant 2.xcdatamodel" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ThingsIWant.xcdatamodeld/ThingsIWant.xcdatamodel" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ViewController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/ViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/UIImage+Tint.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/UIImage+Tint.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/zh-Hans.lproj/InfoPlist.strings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/zh-Hans.lproj/LaunchScreen.strings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ThingsIWant/zh-Hans.lproj/Localizable.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWantTests/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ThingsIWantTests/ThingsIWantTests.m" isTestSource="false" />
     </content>

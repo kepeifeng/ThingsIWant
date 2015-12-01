@@ -12,6 +12,9 @@
 #import <SWTableViewCell.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "ItemDetailViewController.h"
+#import <AVOSCloud.h>
+#import "LoginViewController.h"
+#import "SyncManager.h"
 
 @interface MainViewController ()<UITableViewDelegate, UITableViewDataSource,
 SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
@@ -48,9 +51,31 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
     self.tableView.emptyDataSetDelegate = self;
     self.tableView.emptyDataSetSource = self;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addButtonTapped:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Account" style:(UIBarButtonItemStylePlain) target:self action:@selector(accountButtonTapped:)];
+    
+    UIBarButtonItem * syncItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemRefresh) target:self action:@selector(syncButtonTapped:)];
+    UIBarButtonItem * addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addButtonTapped:)];
+    self.navigationItem.rightBarButtonItems = @[syncItem, addItem];
     
 
+    
+//    UIToolbar * toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,CGRectGetHeight(self.view.bounds) - 42, CGRectGetWidth(self.view.bounds), 42)];
+//    toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+//    [self.view addSubview:toolbar];
+    
+}
+
+-(void)syncButtonTapped:(id)sender{
+    [[SyncManager sharedManager] sync];
+}
+
+-(void)accountButtonTapped:(id)sender{
+
+    if ([AVUser currentUser] == nil) {
+        LoginViewController * loginViewController = [[LoginViewController alloc] init];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:loginViewController] animated:YES completion:NULL];
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -63,7 +88,7 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 -(void)refreshTableView{
 
     NSManagedObjectContext * context = [APP_DELEGATE managedObjectContext];
-    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Thing"];
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Product"];
     
     NSError * error;
     NSArray * result = [context executeFetchRequest:request error:&error];
@@ -100,10 +125,11 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
         
         NSString * name = [(UITextField *)[alertController.textFields objectAtIndex:0] text];
         if (name.length) {
-            Thing * desc = (Thing *)[NSEntityDescription insertNewObjectForEntityForName:@"Thing" inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
+            Product * desc = (Product *)[NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:[APP_DELEGATE managedObjectContext]];
 //            [desc setValue:name forKey:@"name"];
             desc.name = name;
-            desc.price = 0;
+            desc.updateTime = [[NSDate date] timeIntervalSince1970];
+            desc.uuid = [[NSProcessInfo processInfo] globallyUniqueString];
 //            NSManagedObject * object = [[NSManagedObject alloc] initWithEntity:desc insertIntoManagedObjectContext:[APP_DELEGATE managedObjectContext]];
             [[APP_DELEGATE managedObjectContext] insertObject:desc];
             [[APP_DELEGATE managedObjectContext] save:nil];
@@ -123,12 +149,12 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
--(Thing *)thingAtIndexPath:(NSIndexPath *)indexPath{
+-(Product *)thingAtIndexPath:(NSIndexPath *)indexPath{
 
     return [_objectList objectAtIndex:indexPath.row];
 }
 
--(NSIndexPath *)indexPathOfThing:(Thing *)thing{
+-(NSIndexPath *)indexPathOfThing:(Product *)thing{
 
     NSUInteger index = [_objectList indexOfObject:thing];
     if (index != NSNotFound) {
@@ -168,9 +194,9 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
         cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
     
-    Thing * thing = [self thingAtIndexPath:indexPath];
+    Product * thing = [self thingAtIndexPath:indexPath];
     cell.textLabel.text = thing.name;
-    cell.detailTextLabel.text = ([thing.price integerValue] == 0)?@"":[NSString stringWithFormat:@"%ld",(long)[thing.price integerValue]];
+//    cell.detailTextLabel.text = ([thing.price integerValue] == 0)?@"":[NSString stringWithFormat:@"%ld",(long)[thing.price integerValue]];
     
     return cell;
 }
@@ -178,7 +204,7 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Thing * thing = [self thingAtIndexPath:indexPath];
+    Product * thing = [self thingAtIndexPath:indexPath];
     ItemDetailViewController * itemDetailViewController= [[ItemDetailViewController alloc] init];
     itemDetailViewController.thing = thing;
     [self.navigationController pushViewController:itemDetailViewController animated:YES];
@@ -188,7 +214,7 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index{
 
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    Thing * thing = [self thingAtIndexPath:indexPath];
+    Product * thing = [self thingAtIndexPath:indexPath];
     
 //    NSManagedObject * object = [[APP_DELEGATE managedObjectContext] objectWithID:thing.managedObjectId];
     [[APP_DELEGATE managedObjectContext] deleteObject:thing];
@@ -197,6 +223,10 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
     
 }
 
+-(UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [UIColor colorWithWhite:0.8 alpha:1];
+}
 
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     return [UIImage imageNamed:@"empty"];
@@ -209,6 +239,16 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 -(NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 
     return [[NSAttributedString alloc] initWithString:@"现在就来一个" attributes:@{NSForegroundColorAttributeName:APP_COLOR}];
+}
+
+-(CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView{
+
+    return -64.0;
+}
+
+-(void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button{
+
+    [self addButtonTapped:button];
 }
 
 @end

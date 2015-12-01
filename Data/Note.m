@@ -2,18 +2,24 @@
 //  Note.m
 //  ThingsIWant
 //
-//  Created by Kent Peifeng Ke on 2/4/15.
-//  Copyright (c) 2015 Kent. All rights reserved.
+//  Created by Kent on 12/1/15.
+//  Copyright © 2015 Kent. All rights reserved.
 //
 
 #import "Note.h"
-#import "Thing.h"
-
+#import "Product.h"
 
 @implementation Note
 
-@dynamic title;
-@dynamic content;
-@dynamic item;
+- (instancetype)init
+{
+    self = [super initWithEntity:[NSEntityDescription entityForName:@"Note" inManagedObjectContext:[APP_DELEGATE managedObjectContext]] insertIntoManagedObjectContext:nil];
+    if (self) {
+        
+    }
+    return self;
+}
+
+// Insert code here to add functionality to your managed object subclass
 
 @end
