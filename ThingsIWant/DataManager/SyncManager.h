@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "DataModel.h"
 
+@protocol SyncManagerDelegate;
 @interface SyncManager : NSObject
 + (instancetype)sharedManager;
 
+@property (nonatomic, weak) id<SyncManagerDelegate> delegate;
+
 -(void)sync;
+@end
+
+@protocol SyncManagerDelegate <NSObject>
+@optional
+-(void)syncManagerDidFinishSync:(SyncManager *)syncManager;
+
 @end

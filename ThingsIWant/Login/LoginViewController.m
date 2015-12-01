@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import <AVOSCloud.h>
+#import "UserHelper.h"
 
 @interface LoginViewController ()
 
@@ -72,7 +73,8 @@
 
     [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error) {
         if (user != nil) {
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginNotification object:nil];
+            [self dismissViewControllerAnimated:YES completion:NULL];
         } else {
             
         }

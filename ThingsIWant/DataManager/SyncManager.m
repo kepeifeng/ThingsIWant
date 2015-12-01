@@ -18,6 +18,7 @@
 @implementation SyncManager
 {
     __weak SyncManager * weakSelf;
+    NSTimeInterval _syncTime;
 }
 + (instancetype)sharedManager
 {
@@ -45,8 +46,13 @@
 
 -(void)sync{
 
+    if([AVUser currentUser] == nil){
+        return;
+    }
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        
+    
+        _syncTime = [[NSDate date] timeIntervalSince1970];
         _context = [APP_DELEGATE createContext];
         [weakSelf downloadNotes];
         [weakSelf downloadLinks];
@@ -61,6 +67,14 @@
         weakSelf.lastUpdateTime = [[NSDate date] timeIntervalSince1970];
         
         NSLog(@"Sync Finished.");
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if ([weakSelf.delegate respondsToSelector:@selector(syncManagerDidFinishSync:)]) {
+                [weakSelf.delegate syncManagerDidFinishSync:weakSelf];
+            }
+            
+        });
     });
 
     
@@ -88,6 +102,7 @@
         [noteObject setObject:@(note.updateTime) forKey:@"updateTime"];
         [noteObject setObject:@(note.deleted) forKey:@"deleted"];
         [noteObject setObject:note.productId forKey:@"productId"];
+        [noteObject setObject:[[AVUser currentUser] objectId] forKey:@"userId"];
         
         [objectArray addObject:noteObject];
     }
@@ -100,6 +115,7 @@
 -(BOOL)downloadNotes{
 
     AVQuery * query = [AVQuery queryWithClassName:@"Note"];
+    [query whereKey:@"userId" equalTo:[[AVUser currentUser] objectId]];
     [query whereKey:@"updateTime" greaterThan:@(self.lastUpdateTime)];
     NSError * error;
     NSArray * result = [query findObjects:&error];
@@ -109,6 +125,9 @@
     request.fetchLimit = 1;
     for (AVObject * noteObject in result) {
         NSString * uuid = noteObject.objectId;
+        
+        NSTimeInterval remoteUpdateTime = [[noteObject objectForKey:@"updateTime"] doubleValue];
+        
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"uuid = %@", uuid];
         request.predicate = predicate;
         
@@ -117,11 +136,14 @@
             note = [Note new];
             [self.context insertObject:note];
             note.uuid = uuid;
+        }else if (note.updateTime > remoteUpdateTime){
+            //如果本地更新时间比服务器更近现在，则保留本地更新，忽略服务器的
+            continue;
         }
         
         note.content = [noteObject objectForKey:@"content"];
         note.title = [noteObject objectForKey:@"title"];
-        note.updateTime = [[noteObject objectForKey:@"updateTime"] doubleValue];
+        note.updateTime = _syncTime;
         note.deleted = [[noteObject objectForKey:@"deleted"] boolValue];
         note.productId = [noteObject objectForKey:@"productId"];
         
@@ -157,6 +179,8 @@
         [avObject setObject:@(link.updateTime) forKey:@"updateTime"];
         [avObject setObject:@(link.deleted) forKey:@"deleted"];
         [avObject setObject:link.productId forKey:@"productId"];
+        [avObject setObject:[[AVUser currentUser] objectId] forKey:@"userId"];
+        
         
         [objectArray addObject:avObject];
     }
@@ -169,6 +193,7 @@
 -(BOOL)downloadLinks{
     NSString * EntityName = @"Link";
     AVQuery * query = [AVQuery queryWithClassName:EntityName];
+    [query whereKey:@"userId" equalTo:[[AVUser currentUser] objectId]];
     [query whereKey:@"updateTime" greaterThan:@(self.lastUpdateTime)];
     NSError * error;
     NSArray * result = [query findObjects:&error];
@@ -178,6 +203,8 @@
     request.fetchLimit = 1;
     for (AVObject * noteObject in result) {
         NSString * uuid = noteObject.objectId;
+        NSTimeInterval remoteUpdateTime = [[noteObject objectForKey:@"updateTime"] doubleValue];
+        
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"uuid = %@", uuid];
         request.predicate = predicate;
         
@@ -186,6 +213,9 @@
             link = [Link new];
             [self.context insertObject:link];
             link.uuid = uuid;
+        }else if (link.updateTime > remoteUpdateTime){
+            //如果本地更新时间比服务器更近现在，则保留本地更新，忽略服务器的
+            continue;
         }
         
         link.url = [noteObject objectForKey:@"url"];
@@ -231,6 +261,8 @@
         [avObject setObject:@(image.updateTime) forKey:@"updateTime"];
         [avObject setObject:@(image.deleted) forKey:@"deleted"];
         [avObject setObject:image.productId forKey:@"productId"];
+        [avObject setObject:[[AVUser currentUser] objectId] forKey:@"userId"];
+        
         
         [objectArray addObject:avObject];
     }
@@ -242,6 +274,7 @@
 -(BOOL)downloadImages{
     NSString * EntityName = @"Image";
     AVQuery * query = [AVQuery queryWithClassName:EntityName];
+    [query whereKey:@"userId" equalTo:[[AVUser currentUser] objectId]];
     [query whereKey:@"updateTime" greaterThan:@(self.lastUpdateTime)];
     NSError * error;
     NSArray * result = [query findObjects:&error];
@@ -252,6 +285,8 @@
     for (AVObject * noteObject in result) {
         NSString * uuid = noteObject.objectId;
         NSString * remoteFileId = [noteObject objectForKey:@"remoteFileId"];
+        NSTimeInterval remoteUpdateTime = [[noteObject objectForKey:@"updateTime"] doubleValue];
+        
         NSString * path = [[FileHelper imageFolder] stringByAppendingPathComponent:remoteFileId];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path] == NO) {
             [AVFile getFileWithObjectId:remoteFileId withBlock:^(AVFile *file, NSError *error) {
@@ -268,6 +303,9 @@
             image = [Image new];
             [self.context insertObject:image];
             image.uuid = uuid;
+        }else if (image.updateTime > remoteUpdateTime){
+            //如果本地更新时间比服务器更近现在，则保留本地更新，忽略服务器的
+            continue;
         }
         
         image.filename = remoteFileId;
@@ -308,6 +346,8 @@
         [avObject setObject:@(product.updateTime) forKey:@"updateTime"];
         [avObject setObject:@(product.deleted) forKey:@"deleted"];
         [avObject setObject:product.uuid forKey:@"productId"];
+        [avObject setObject:[[AVUser currentUser] objectId] forKey:@"userId"];
+        
         
         [objectArray addObject:avObject];
     }
@@ -321,6 +361,7 @@
 
     NSString * EntityName = @"Product";
     AVQuery * query = [AVQuery queryWithClassName:EntityName];
+    [query whereKey:@"userId" equalTo:[[AVUser currentUser] objectId]];
     [query whereKey:@"updateTime" greaterThan:@(self.lastUpdateTime)];
     NSError * error;
     NSArray * result = [query findObjects:&error];
@@ -330,6 +371,8 @@
     request.fetchLimit = 1;
     for (AVObject * noteObject in result) {
         NSString * uuid = noteObject.objectId;
+        NSTimeInterval remoteUpdateTime = [[noteObject objectForKey:@"updateTime"] doubleValue];
+        
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"uuid = %@", uuid];
         request.predicate = predicate;
         
@@ -338,6 +381,9 @@
             product = [Product new];
             [self.context insertObject:product];
             product.remoteId = uuid;
+        }else if (product.updateTime > remoteUpdateTime){
+            //如果本地更新时间比服务器更近现在，则保留本地更新，忽略服务器的
+            continue;
         }
         
         product.name = [noteObject objectForKey:@"name"];

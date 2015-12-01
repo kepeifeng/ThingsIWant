@@ -58,8 +58,9 @@
     [root addSection:section];
     __weak LinkEditorViewController * weakSelf = self;
     titleElement = [[QEntryElement alloc] initWithTitle:@"Title" Value:self.link.title Placeholder:nil];
-    [titleElement setOnValueChanged:^(QEntryElement * element) {
-        weakSelf.link.title = element.textValue;
+    [titleElement setOnValueChanged:^(id element) {
+        QEntryElement * entryElement = element;
+        weakSelf.link.title = entryElement.textValue;
     }];
     [section addElement:titleElement];
     
@@ -67,8 +68,10 @@
 //    [root addSection:additionSection];
     
     linkElement = [[QEntryElement alloc] initWithTitle:@"Link" Value:self.link.url Placeholder:nil];
-    [linkElement setOnValueChanged:^(QEntryElement * element) {
-        weakSelf.link.title = element.textValue;
+    [linkElement setOnValueChanged:^(id element) {
+        
+        QEntryElement * entryElement = element;
+        weakSelf.link.title = entryElement.textValue;
     }];
     [section addElement:linkElement];
     

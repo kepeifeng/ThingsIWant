@@ -59,8 +59,9 @@
     __weak PriceEditorViewController * weakSelf = self;
     priceElement = [[QEntryElement alloc] initWithTitle:@"Price" Value:[@(self.price.value) stringValue] Placeholder:nil];
     priceElement.keyboardType = UIKeyboardTypeDecimalPad;
-    [priceElement setOnValueChanged:^(QEntryElement * element) {
-        weakSelf.price.value = [element.textValue floatValue];
+    [priceElement setOnValueChanged:^(id element) {
+        QEntryElement * entryElement = element;
+        weakSelf.price.value = [entryElement.textValue floatValue];
     }];
     [section addElement:priceElement];
     
@@ -68,8 +69,10 @@
     [root addSection:additionSection];
     
     noteElement = [[QEntryElement alloc] initWithTitle:@"Note" Value:self.price.note Placeholder:nil];
-    [noteElement setOnValueChanged:^(QEntryElement * element) {
-        weakSelf.price.note = (NSString *)element.textValue;
+    [noteElement setOnValueChanged:^(id element) {
+        
+        QEntryElement * entryElement = element;
+        weakSelf.price.note = (NSString *)entryElement.textValue;
     }];
     [additionSection addElement:noteElement];
     

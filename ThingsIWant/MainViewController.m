@@ -15,9 +15,10 @@
 #import <AVOSCloud.h>
 #import "LoginViewController.h"
 #import "SyncManager.h"
+#import "UserHelper.h"
 
 @interface MainViewController ()<UITableViewDelegate, UITableViewDataSource,
-SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource, SyncManagerDelegate>
 @property (nonatomic) UITableView * tableView;
 @end
 
@@ -58,10 +59,19 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
     self.navigationItem.rightBarButtonItems = @[syncItem, addItem];
     
 
+    [[SyncManager sharedManager] setDelegate:self];
+    [[SyncManager sharedManager] sync];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginHandler:) name:kUserLoginNotification object:nil];
 //    UIToolbar * toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,CGRectGetHeight(self.view.bounds) - 42, CGRectGetWidth(self.view.bounds), 42)];
 //    toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 //    [self.view addSubview:toolbar];
+    
+}
+
+-(void)loginHandler:(NSNotification *)note{
+    
+    [[SyncManager sharedManager] sync];
     
 }
 
@@ -225,7 +235,7 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
 -(UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView{
     
-    return [UIColor colorWithWhite:0.8 alpha:1];
+    return [UIColor colorWithWhite:0.9 alpha:1];
 }
 
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
@@ -233,12 +243,12 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 }
 
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
-    return [[NSAttributedString alloc] initWithString:@"啥也没有" attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
+    return [[NSAttributedString alloc] initWithString:@"想一个你最想要的东西" attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
 }
 
 -(NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 
-    return [[NSAttributedString alloc] initWithString:@"现在就来一个" attributes:@{NSForegroundColorAttributeName:APP_COLOR}];
+    return [[NSAttributedString alloc] initWithString:@"把它加到列表上" attributes:@{NSForegroundColorAttributeName:APP_COLOR}];
 }
 
 -(CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView{
@@ -249,6 +259,13 @@ SWTableViewCellDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 -(void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button{
 
     [self addButtonTapped:button];
+}
+
+#pragma mark - Sync
+-(void)syncManagerDidFinishSync:(SyncManager *)syncManager{
+
+    [self refreshTableView];
+
 }
 
 @end

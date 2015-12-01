@@ -5,6 +5,7 @@
 
 #import "RegisterViewController.h"
 #import <AVOSCloud.h>
+#import "UserHelper.h"
 
 @implementation RegisterViewController {
 
@@ -88,6 +89,8 @@
             [self showCheckmark];
             AVUser * user = [AVUser currentUser];
             NSLog(@"current user: %@", user.username);
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginNotification object:nil];
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:NULL];
             });
